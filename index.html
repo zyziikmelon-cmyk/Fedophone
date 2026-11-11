@@ -103,6 +103,7 @@ body.entering .chat{animation:slideR .6s .24s var(--ease) both}
 .ib svg,.cb svg{transition:transform .4s var(--spring)}
 .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;flex:none;position:relative;text-transform:uppercase}
 .av i{position:absolute;right:-2px;bottom:-2px;width:13px;height:13px;border-radius:50%;background:var(--speak);border:3px solid var(--bg3);animation:livedot 2.4s infinite;z-index:6}
+.av{isolation:isolate}
 .av i.idle{background:#f0b232;animation:none}.av i.dnd{background:#f23f43;animation:none}.av i.inv{background:#80848e;animation:none}
 .av i.dnd::after{content:'';position:absolute;left:18%;right:18%;top:50%;height:2px;margin-top:-1px;background:var(--bg3);border-radius:2px}
 
@@ -365,7 +366,6 @@ input[type=color]{width:46px;height:38px;border:0;padding:0;background:none;curs
 .profile{background:linear-gradient(180deg,color-mix(in srgb,var(--bg2) 92%,#000),color-mix(in srgb,var(--bg2) 70%,#000));border:1px solid rgba(255,255,255,.07);border-radius:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 .profile .banner{position:relative}
 .profile .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55)),repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 9px);pointer-events:none}
-.profile .banner::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);z-index:1}
 .profile .pn b{letter-spacing:.01em;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.4)}
 #pop .profile{box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
 #pop .sect{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);border-radius:10px}
@@ -399,19 +399,52 @@ input[type=color]{width:46px;height:38px;border:0;padding:0;background:none;curs
 #pinp .pi:hover{background:rgba(255,255,255,.07)}#pinp .pi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.9em}#pinp .pi small{color:var(--muted);font-size:.72em}
 .rbar{display:flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--bg4) 80%,#000);border-radius:10px 10px 0 0;padding:7px 12px;font-size:.82em;color:var(--muted);margin-bottom:-4px}
 .rbar span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rbar b{color:var(--text)}.rbar button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:1em}
-.vm{display:inline-flex;align-items:center;gap:10px;margin-top:4px;padding:8px 12px 8px 8px;border-radius:12px;background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 22%,var(--bg3)),var(--bg3));border:1px solid rgba(255,255,255,.07);min-width:250px;max-width:360px}
-.vm .vp{width:36px;height:36px;border-radius:50%;border:0;background:var(--accent);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none;box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 45%,transparent)}
-.vm .vp svg{width:18px;height:18px}.vm.play .vp{background:#fff;color:var(--accent)}
-.vm .vw{flex:1;display:flex;align-items:center;gap:2px;height:30px;cursor:pointer}
-.vm .vw i{flex:1;border-radius:2px;background:color-mix(in srgb,var(--text) 35%,transparent);min-height:3px;transition:background .15s}.vm .vw i.on{background:var(--text)}
-.vm .vt{font-size:.78em;color:var(--muted);font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
-.vm .vs{border:0;border-radius:6px;background:rgba(255,255,255,.08);color:var(--text);font:inherit;font-size:.72em;font-weight:800;padding:3px 6px;cursor:pointer;min-width:38px}
-.vbar{display:flex;align-items:center;gap:10px;background:var(--bg4);border-radius:12px;padding:8px 10px;margin-top:6px}
-.vbar .rdot{width:10px;height:10px;border-radius:50%;background:#f23f43;animation:livedot 1s infinite;flex:none}
-.vbar b{font-variant-numeric:tabular-nums;font-size:.9em;min-width:36px}
-.vlive{flex:1;display:flex;align-items:center;gap:2px;height:28px;overflow:hidden;justify-content:flex-end}.vlive i{width:3px;flex:none;border-radius:2px;background:#f23f43;min-height:3px}
-.vbar button{border:0;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1em}.vbar .vx{background:rgba(255,255,255,.08);color:var(--muted)}.vbar .vok{background:var(--accent);color:#fff}
+.vm{display:flex;align-items:center;gap:12px;margin-top:5px;padding:10px 14px 9px 10px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);min-width:270px;max-width:380px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.vm .vp{width:42px;height:42px;border-radius:50%;border:0;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 80%,#fff),var(--accent));color:#fff;display:grid;place-items:center;cursor:pointer;flex:none;box-shadow:0 4px 16px color-mix(in srgb,var(--accent) 45%,transparent);transition:transform .15s}
+.vm .vp:hover{transform:scale(1.06)}.vm .vp svg{width:19px;height:19px}.vm.play .vp{background:#fff;color:var(--accent)}
+.vm .vbody{flex:1;min-width:0;display:grid;gap:4px}
+.vm .vw{display:flex;align-items:center;gap:2.5px;height:28px;cursor:pointer}
+.vm .vw i{width:3px;flex:none;border-radius:3px;background:rgba(255,255,255,.22);min-height:3px;transition:background .12s}
+.vm .vw i.on{background:linear-gradient(180deg,#fff,color-mix(in srgb,var(--accent) 60%,#fff))}
+.vm .vmeta{display:flex;align-items:center;gap:8px;font-size:.74em;color:var(--muted)}
+.vm .vt{font-variant-numeric:tabular-nums;color:var(--text);opacity:.8}.vm .vlab{flex:1;opacity:.6}
+.vm .vs{border:1px solid rgba(255,255,255,.12);border-radius:20px;background:transparent;color:var(--text);font:inherit;font-weight:700;padding:1px 8px;cursor:pointer}
+.vm .vs:hover{background:rgba(255,255,255,.08)}
+.vbar{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,rgba(242,63,67,.14),var(--bg4) 40%);border:1px solid rgba(242,63,67,.25);border-radius:14px;padding:8px 8px 8px 10px;margin-top:6px}
+.vbar .vrec{display:flex;align-items:center;gap:8px}.vbar .rdot{width:10px;height:10px;border-radius:50%;background:#f23f43;box-shadow:0 0 0 0 rgba(242,63,67,.6);animation:recp 1.2s infinite}
+@keyframes recp{70%{box-shadow:0 0 0 8px rgba(242,63,67,0)}100%{box-shadow:0 0 0 0 rgba(242,63,67,0)}}
+.vbar b{font-variant-numeric:tabular-nums;font-size:.95em;min-width:38px;color:var(--text)}
+.vlive{flex:1;display:flex;align-items:center;gap:2px;height:30px;overflow:hidden;justify-content:flex-end}.vlive i{width:3px;flex:none;border-radius:3px;background:linear-gradient(180deg,#ff8a8a,#f23f43);min-height:3px}
+.vbar .vhint{color:var(--muted);font-size:.72em;white-space:nowrap}
+.vbar button{border:0;border-radius:50%;width:38px;height:38px;cursor:pointer;display:grid;place-items:center;flex:none}.vbar button svg{width:18px;height:18px}
+.vbar .vx{background:rgba(255,255,255,.07);color:var(--muted)}.vbar .vx:hover{color:#f23f43;background:rgba(242,63,67,.15)}
+.vbar .vok{background:var(--accent);color:#fff;box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 45%,transparent)}
+#vrec.recon{color:#f23f43}
 #vrec svg{width:20px;height:20px}
+.gbtns{display:flex;gap:8px;margin-top:8px}.gbtns .btn{flex:1;font-size:.9em}
+#gmodal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}#gmodal[hidden]{display:none!important}
+#gmodal .gm{width:min(460px,92vw);background:color-mix(in srgb,var(--bg2) 92%,#000);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#gmodal h3{margin:0 0 14px}.gkind{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.gkind button{display:grid;gap:3px;text-align:left;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:pointer}
+.gkind button small{color:var(--muted);font-size:.8em}.gkind button.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.gk{font-size:.55em;font-weight:800;letter-spacing:.1em;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08);color:var(--muted);vertical-align:middle}
+body.grp #callA,body.grp #callV,body.grp #chVoice,body.grp #members,body.grp #vcat{display:none!important}
+.compose.ro .cbox{opacity:.55}
+
+#mmenu{min-width:230px}#mmenu hr{border:0;border-top:1px solid rgba(255,255,255,.07);margin:5px 4px}
+#mmenu .mrx{display:flex;gap:2px;padding:2px 2px 6px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:4px;flex-wrap:wrap}
+#mmenu .mrx button{width:32px;height:32px;padding:0;justify-content:center;font-size:18px;border-radius:8px;transition:transform .12s}
+#mmenu .mrx button:hover{background:rgba(255,255,255,.1);transform:scale(1.18)}#mmenu .mrx.wide{max-width:230px}
+#mmenu .mlab{font-size:.68em;letter-spacing:.1em;text-transform:uppercase;color:#f0b232;padding:2px 10px 4px}
+#mmenu .mchips{display:flex;gap:4px;padding:0 6px 4px}#mmenu .mchips button{flex:1;justify-content:center;padding:6px 4px;background:rgba(255,255,255,.05);font-size:.8em}
+#mmenu button.lock{opacity:.55}
+.rx{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.rx button{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:20px;padding:2px 8px;font:inherit;font-size:.85em;color:var(--text);cursor:pointer}
+.rx button b{font-size:.85em;font-weight:700;opacity:.85}.rx button.mine{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,transparent)}
+.msg .ttl{margin-left:6px;font-size:.75em;opacity:.8}
+#ttlbtn{position:relative}#ttlbtn svg{width:19px;height:19px}#ttlbtn b{position:absolute;right:0;bottom:2px;font-size:.55em;color:#f0b232}#ttlbtn.on{color:#f0b232}
+.rdesc{color:var(--muted);font-size:.86em}
+
 .vbar[hidden],.rbar[hidden],#mmenu[hidden],#smenu[hidden],#pinp[hidden]{display:none!important}
 
 .av[data-deco=ocean]::before{content:"";position:absolute;inset:-15%;border-radius:50%;pointer-events:none;-webkit-mask:radial-gradient(farthest-side,transparent 75%,#000 78.5%);mask:radial-gradient(farthest-side,transparent 75%,#000 78.5%);background:conic-gradient(#00c6ff,#0072ff,#00ffd5,#00c6ff);animation:spin 5s linear infinite}
@@ -736,7 +769,7 @@ details.devtest[open] summary{margin-bottom:10px}
 .role{display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:0 5px;border-radius:5px;font-size:.58em;font-weight:800;letter-spacing:.07em;vertical-align:middle;position:relative;top:-.12em;line-height:1.6;white-space:nowrap;border:1px solid currentColor;background:color-mix(in srgb,currentColor 14%,transparent)}
 .role svg{width:1.15em;height:1.15em;fill:currentColor;flex:none}
 .role.creator{color:#f0b232}
-.role.mod{color:#4aa3ff}
+.role.mod{color:#5aa9ff;background:linear-gradient(90deg,rgba(90,169,255,.22),rgba(47,107,255,.12));box-shadow:0 0 10px rgba(90,169,255,.25)}
 body.desk .web-only{display:none!important}
 body:not(.desk) .desk-only{display:none!important}
 .gti.gimg{background:none;box-shadow:none;object-fit:contain;border-radius:.25em}
@@ -909,6 +942,7 @@ body.lite .uic{animation:none}
       <div class="err" id="lerr"></div>
       <div id="joinhint" style="display:none;background:color-mix(in srgb,var(--accent) 16%,transparent);border:1px solid var(--accent);border-radius:10px;padding:9px 12px;margin:2px 0 10px;font-size:13px;line-height:1.4"></div>
       <button class="btn w" id="join">Войти в комнату</button>
+      <div class="row gbtns"><button type="button" class="btn ghost" id="mkgroup">👥 Создать группу</button><button type="button" class="btn ghost" id="mkchan">📢 Создать канал</button></div>
       <div class="lfoot"><a href="privacy.html" target="_blank" rel="noopener">Политика конфиденциальности</a> · <a href="impressum.html" target="_blank" rel="noopener">Impressum</a> · <a href="terms.html" target="_blank" rel="noopener">Правила</a></div>
       <div class="net" id="net"><i></i><span>Проверяю связь…</span></div>
       <div class="row" style="margin-top:12px;justify-content:space-between">
@@ -949,7 +983,7 @@ body.lite .uic{animation:none}
     <div class="chan">
       <div class="cat">Текстовый канал</div>
       <div class="vc on" id="chTxt"><span class="hash">#</span>чат</div>
-      <div class="cat" style="margin-top:16px">Голосовой канал</div>
+      <div class="cat" id="vcat" style="margin-top:16px">Голосовой канал</div>
       <div class="vc" id="chVoice"><svg><use href="#i-vol"/></svg>Звонок<small id="vcState"></small></div>
       <div id="members"></div>
       <div class="cat" style="margin-top:16px">В комнате</div>
@@ -995,7 +1029,7 @@ body.lite .uic{animation:none}
     </header>
     <div class="msgs" id="msgs"></div>
     <div class="typing" id="typing"></div>
-    <form class="compose" id="cform"><div class="spick" id="spick"></div><div class="rbar" id="rbar" hidden><span id="rtxt"></span><button type="button" id="rclose">✕</button></div><div class="cbox"><button type="button" class="ib" id="sbtn" title="Стикеры"><svg><use href="#i-smile"/></svg></button><input id="cin" placeholder="Написать сообщение" autocomplete="off" maxlength="2000"><button type="button" class="ib" id="vrec" title="Голосовое сообщение"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 0 0-7 0v6A3.5 3.5 0 0 0 12 15Zm6.3-3.8a1 1 0 0 0-2 .1 4.3 4.3 0 0 1-8.6 0 1 1 0 0 0-2-.1 6.3 6.3 0 0 0 5.3 6.2V20H9a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-2.6a6.3 6.3 0 0 0 5.3-6.2Z"/></svg></button><button class="ib"><svg><use href="#i-send"/></svg></button></div><div class="vbar" id="vbar" hidden><button type="button" class="vx" id="vcancel" title="Отмена">✕</button><i class="rdot"></i><b id="vtime">0:00</b><div class="vlive" id="vlive"></div><button type="button" class="vok" id="vsend" title="Отправить">➤</button></div></form>
+    <form class="compose" id="cform"><div class="spick" id="spick"></div><div class="rbar" id="rbar" hidden><span id="rtxt"></span><button type="button" id="rclose">✕</button></div><div class="cbox"><button type="button" class="ib" id="sbtn" title="Стикеры"><svg><use href="#i-smile"/></svg></button><input id="cin" placeholder="Написать сообщение" autocomplete="off" maxlength="2000"><button type="button" class="ib" id="ttlbtn" title="Исчезающие сообщения ✦"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><b></b></button><button type="button" class="ib" id="vrec" title="Голосовое сообщение"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 0 0-7 0v6A3.5 3.5 0 0 0 12 15Zm6.3-3.8a1 1 0 0 0-2 .1 4.3 4.3 0 0 1-8.6 0 1 1 0 0 0-2-.1 6.3 6.3 0 0 0 5.3 6.2V20H9a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-2.6a6.3 6.3 0 0 0 5.3-6.2Z"/></svg></button><button class="ib"><svg><use href="#i-send"/></svg></button></div><div class="vbar" id="vbar" hidden><button type="button" class="vx" id="vcancel" title="Удалить запись"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 3h6l1 2h4v2H4V5h4Zm-3 6h12l-1 12H7Z"/></svg></button><div class="vrec"><i class="rdot"></i><b id="vtime">0:00</b></div><div class="vlive" id="vlive"></div><small class="vhint">Esc — отмена</small><button type="button" class="vok" id="vsend" title="Отправить"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12.6 2-12.6 2Z"/></svg></button></div></form>
   </aside>
 </div>
 <div id="ring"><div class="rcard"><div class="rav"><div class="av" id="ringav">?</div></div><h3 id="ringname">Друг</h3><p id="ringtxt">звонит тебе…</p><div class="rb"><button class="ok" id="ringOk" title="Ответить"><svg><use href="#i-phone"/></svg></button><button class="ok" id="ringVid" title="Ответить с видео"><svg><use href="#i-cam"/></svg></button><button class="no" id="ringNo" title="Отклонить"><svg><use href="#i-end"/></svg></button></div></div></div>
@@ -1171,9 +1205,10 @@ body.lite .uic{animation:none}
 </div>
 <div id="toasts"></div>
 <div id="mmenu" hidden></div>
+<div id="gmodal" hidden><div class="gm"><h3>Новая группа или канал</h3><div class="gkind"><button type="button" data-k="g" class="on"><b>👥 Группа</b><small>Пишут все участники</small></button><button type="button" data-k="c"><b>📢 Канал</b><small>Пишешь только ты, остальные читают</small></button></div><input class="in" id="gname" maxlength="40" placeholder="Название"><small class="appnote">Звонки пока только в комнатах на двоих. В группах и каналах — сообщения, стикеры, реакции, ответы и закрепы. Вступают по ссылке-приглашению.</small><div class="row" style="justify-content:flex-end;margin-top:12px"><button type="button" class="btn ghost" id="gcancel">Отмена</button><button type="button" class="btn" id="gcreate">Создать</button></div></div></div>
 <div id="pinp" hidden><h4>Закреплённые</h4><div id="pinl"></div></div>
 <div id="smenu" hidden></div>
-<div id="pop"><div class="profile"><div class="banner" id="xbanner"></div><div class="pin"><div class="av" id="xav">?</div><div class="pn"><b id="xname">—</b></div></div><div class="sect" id="xplaybox"><h4>Сейчас</h4><div id="xplay"></div></div><div class="sect" id="xbiobox"><h4>О себе</h4><div class="bio" id="xbio"></div></div></div></div>
+<div id="pop"><div class="profile"><div class="banner" id="xbanner"></div><div class="pin"><div class="av" id="xav">?</div><div class="pn"><b id="xname">—</b></div></div><div class="sect" id="xplaybox"><h4>Сейчас</h4><div id="xplay"></div></div><div class="sect" id="xrolebox"><h4>Роль</h4><div id="xrole"></div></div><div class="sect" id="xbiobox"><h4>О себе</h4><div class="bio" id="xbio"></div></div></div></div>
 
 <script>
 (function(){var n=0;function show(m){if(++n>3)return;var b=document.getElementById('errbox'),t=document.getElementById('errtxt');if(!b)return;t.textContent+=m+' | ';b.style.display='block'}
@@ -1240,7 +1275,7 @@ const BANNERS=[{k:'simple',n:'Простой',v:'linear-gradient(135deg,#5865f2,
   {k:'noir',n:'Нуар',v:'radial-gradient(circle at 50% 120%,#2a2a2a,transparent 60%),linear-gradient(180deg,#000,#0d0d0d)'},
 ]);
 const GAMES=[['Fortnite','🪂'],['Roblox','🧱'],['Minecraft','⛏️'],['Dota 2','🗡️'],['CS2','🎯'],['Valorant','💥'],['GTA V','🚗'],['Brawl Stars','⭐'],['Standoff 2','🔫'],['PUBG','🍳'],['Apex Legends','🔺'],['Genshin Impact','✨'],['World of Tanks','🛡️'],['Rust','🪓'],['Among Us','🚀'],['League of Legends','⚔️'],['Rocket League','⚽'],['osu!','🎵']];
-var PRES={on:['#23a55a','В сети','Тебя видно как обычно'],idle:['#f0b232','Отошёл','Друг видит, что ты отошёл'],dnd:['#f23f43','Не беспокоить','Без звуков сообщений'],inv:['#80848e','Невидимка','Друг видит тебя не в сети']};
+var RK=null;var PRES={on:['#23a55a','В сети','Тебя видно как обычно'],idle:['#f0b232','Отошёл','Друг видит, что ты отошёл'],dnd:['#f23f43','Не беспокоить','Без звуков сообщений'],inv:['#80848e','Невидимка','Друг видит тебя не в сети']};
 const DEF={nick:'',avc:AVC[0],theme:0,bg:'#313338',text:'#f2f3f5',muted:'#b5bac1',light:false,acc:ACC[0],font:'inter',fs:15,rad:10,anim:true,chat:true,
   stage:'aurora',img:'',dim:20,micdev:'',camdev:'',spk:'',vol:100,q:'720',mirror:true,ns:true,ec:true,agc:true,cover:false,startcam:false,startmic:false,
   sjoin:true,smsg:true,smute:true,ring:true,deco:'none',nst:'none',badge:'none',bio:'',banner:'color',aq:'96',jit:'150',game:'auto',sfx:true,uid:'',avimg:'',bimg:'',play:'',playMode:'auto',rooms:[],turn:{},lang:'en',reg:0};
@@ -1415,7 +1450,7 @@ const I18N={
 "Чат, звонки и стримы с друзьями. Напрямую, без VPN и без рекламы.":["Chat, calls and streams with friends. Direct, no VPN, no ads.","Chat, appels et streams entre amis. Direct, sans VPN, sans pub."],
 "Чат и стикеры":["Chat and stickers","Chat et stickers"],"Звонки и видео":["Calls and video","Appels et vidéo"],"Стрим экрана":["Screen sharing","Partage d'écran"],"Только вы двое":["Just the two of you","Rien qu'à deux"],
 "Сейчас бесплатно для всех. Кто зарегистрируется сейчас — останется бесплатно навсегда.":["Free for everyone right now. Sign up today and it stays free for you forever.","Gratuit pour tous en ce moment. Inscris-toi aujourd'hui et ça reste gratuit pour toujours."],
-"Создать аккаунт":["Create account","Créer un compte"],"Правила":["Terms","Conditions"],"Клинок":["Blade", "Lame"],"Карбон":["Carbon", "Carbone"],"Хром":["Chrome", "Chrome"],"Инферно":["Inferno", "Inferno"],"Яд":["Venom", "Venin"],"Тень":["Shadow", "Ombre"],"Роял":["Royal", "Royal"],"Тактик":["Tactical", "Tactique"],"В сети":["Online", "En ligne"],"Отошёл":["Idle", "Absent"],"Не беспокоить":["Do not disturb", "Ne pas déranger"],"Невидимка":["Invisible", "Invisible"],"Тебя видно как обычно":["Friends see you as usual", "Visible comme d’habitude"],"Друг видит, что ты отошёл":["Your friend sees you are away", "Ton ami voit que tu es absent"],"Без звуков сообщений":["No message sounds", "Sans sons de messages"],"Друг видит тебя не в сети":["You appear offline", "Tu apparais hors ligne"],"Свой статус: чем занят?":["Custom status: what are you up to?", "Statut perso : tu fais quoi ?"],"Убрать":["Clear", "Effacer"],"Статус":["Status", "Statut"],"Ответить":["Reply", "Répondre"],"Изменить":["Edit", "Modifier"],"Копировать текст":["Copy text", "Copier le texte"],"Копировать выделенное":["Copy selection", "Copier la sélection"],"Закрепить":["Pin", "Épingler"],"Открепить":["Unpin", "Désépingler"],"Удалить":["Delete", "Supprimer"],"Удалить сообщение у вас обоих?":["Delete this message for both of you?", "Supprimer ce message pour vous deux ?"],"Скопировано":["Copied", "Copié"],"Сообщение закреплено":["Message pinned", "Message épinglé"],"Сообщение откреплено":["Message unpinned", "Message désépinglé"],"Ответ для":["Replying to", "Réponse à"],"Редактирование":["Editing", "Modification"],"Esc — отмена":["Esc to cancel", "Échap pour annuler"],"(изменено)":["(edited)", "(modifié)"],"Закреплено":["Pinned", "Épinglé"],"Закреплённые":["Pinned", "Épinglés"],"Закреплённые сообщения":["Pinned messages", "Messages épinglés"],"Пока ничего не закреплено. Правый клик по сообщению → «Закрепить».":["Nothing pinned yet. Right-click a message → Pin.", "Rien d’épinglé. Clic droit sur un message → Épingler."],"сообщение":["message", "message"],"Голосовое сообщение":["Voice message", "Message vocal"],"Слушать":["Play", "Écouter"],"Скорость":["Speed", "Vitesse"],"Это голосовое есть только на устройстве друга":["This voice message is only on your friend’s device", "Ce vocal n’est que sur l’appareil de ton ami"],"Сначала зайди в комнату":["Join a room first", "Rejoins d’abord un salon"],"Нет доступа к микрофону":["No microphone access", "Pas d’accès au micro"],"Голосовые отправляются, когда друг в сети":["Voice messages are sent while your friend is online", "Les vocaux partent quand ton ami est en ligne"],"Слишком длинное голосовое":["Voice message is too long", "Vocal trop long"],"Отмена":["Cancel", "Annuler"],"Отправить":["Send", "Envoyer"],"Чтобы друг видел минуту матча и счёт: Steam → Dota 2 → Свойства → Параметры запуска → впиши -gamestateintegration и перезапусти игру.":["To show the match minute and score: Steam → Dota 2 → Properties → Launch options → add -gamestateintegration and restart the game.", "Pour montrer la minute du match : Steam → Dota 2 → Propriétés → Options de lancement → ajoute -gamestateintegration et relance le jeu."],"Подтверждённый аккаунт":["Verified account", "Compte vérifié"],"Чаты":["Chats", "Discussions"],"Галочка":["Verification", "Vérification"],"О приложении":["About", "À propos"],"Все комнаты, где ты общался. Удаляется только у тебя — у друга чат останется.":["Every room you have chatted in. Deleting removes it only for you — your friend keeps it.", "Tous les salons où tu as discuté. La suppression ne concerne que toi."],"Удалить все чаты":["Delete all chats", "Supprimer toutes les discussions"],"Галочка подтверждения":["Verification checkmark", "Badge de vérification"],"Синюю галочку у ника получают блогеры и известные люди — от 10 000 подписчиков на одной площадке (TikTok, YouTube, Twitch, Instagram, Telegram, VK).":["Creators and public figures with 10,000+ followers on one platform (TikTok, YouTube, Twitch, Instagram, Telegram, VK) get a blue checkmark next to their name.", "Les créateurs avec 10 000+ abonnés sur une plateforme (TikTok, YouTube, Twitch, Instagram, Telegram, VK) obtiennent un badge bleu."],"Площадка":["Platform", "Plateforme"],"Ссылка на твой канал":["Link to your channel", "Lien vers ta chaîne"],"Сколько подписчиков":["Followers", "Abonnés"],"Пару слов о себе":["A few words about you", "Quelques mots sur toi"],"Другое":["Other", "Autre"],"Отправить заявку на почту":["Send request by e-mail", "Envoyer la demande par e-mail"],"Откроется твоя почта с готовым письмом — просто нажми «Отправить». Если всё подтвердится, придёт код: вставь его в «Мой профиль → Значок роли», и галочка появится.":["Your mail app opens with the letter ready — just press Send. Once confirmed you get a code: paste it into My profile → Role badge and the checkmark appears.", "Ton app mail s'ouvre avec la lettre prête — envoie-la. Après validation tu reçois un code à coller dans Mon profil → Badge de rôle."],"Версия для Windows":["Windows app version", "Version Windows"],"Последняя версия":["Latest version", "Dernière version"],"Интерфейс обновляется сам, без скачивания. Программу для Windows нужно обновлять, только когда выходит новая версия — она сама предложит, скачает и поставит поверх, без переустановки и без выхода из аккаунта.":["The interface updates by itself, nothing to download. The Windows app only needs an update when a new version is out — it offers it, downloads it and installs over the old one, without reinstalling or signing you out.", "L'interface se met à jour seule. L'app Windows se met à jour seulement pour une nouvelle version — elle la propose, la télécharge et l'installe par-dessus, sans te déconnecter."],"Проверка связи":["Connection test", "Test de connexion"],"Канал в Telegram":["Telegram channel", "Canal Telegram"],"Конфиденциальность":["Privacy", "Confidentialité"],"Чатов пока нет":["No chats yet", "Aucune discussion"],"{n} сообщ.":["{n} msgs", "{n} msgs"],"Открыть":["Open", "Ouvrir"],"Удалить":["Delete", "Supprimer"],"Удалить все чаты вместе с перепиской? Это только у тебя.":["Delete all chats with their messages? Only on your side.", "Supprimer toutes les discussions ? Seulement chez toi."],"Все чаты удалены":["All chats deleted", "Discussions supprimées"],"Чтобы мы поняли, что канал твой, на время проверки добавь в описание канала код {c}.":["To prove the channel is yours, put the code {c} in its description while we check.", "Pour prouver que la chaîne est à toi, mets le code {c} dans sa description pendant la vérification."],"Вставь ссылку на канал":["Paste the link to your channel", "Colle le lien de ta chaîne"],"не установлена":["not installed", "non installée"],"Океан":["Ocean", "Océan"],"Закат":["Sunset", "Coucher"],"Изумруд":["Emerald", "Émeraude"],"Карамель":["Candy", "Bonbon"],"Радар":["Radar", "Radar"],"Бриллиант":["Diamond", "Diamant"],"Бездна":["Void", "Néant"],"Лава":["Lava", "Lave"],"Орбита":["Orbit", "Orbite"],"Продолжить без аккаунта":["Continue without an account","Continuer sans compte"],"Без аккаунта: всё работает, кроме ретранслятора и переноса профиля. Войти можно позже.":["Without an account everything works except the relay and profile sync. You can sign in later.","Sans compte, tout marche sauf le relais et la synchro du profil. Tu peux te connecter plus tard."],"Связь тормозит — перестраиваю маршрут…":["The connection is lagging — rerouting…","La connexion rame — changement de route…"],"Сейчас видно:":["Showing now:","Affiché :"],"✅ Игра определяется сама. Сейчас ты ни во что не играешь — друзья видят просто «в сети».":["✅ Your game is detected automatically. You are not playing anything right now — friends just see you as online.","✅ Ton jeu est détecté tout seul. Tu ne joues à rien pour l'instant — tes amis te voient simplement en ligne."],"✅ Ты в Fedophone для Windows: игра определяется сама.":["✅ You are in Fedophone for Windows: your game is detected automatically.","✅ Tu es dans Fedophone pour Windows : ton jeu est détecté tout seul."],"Политика конфиденциальности":["Privacy policy","Politique de confidentialité"],"Без почты и пароля — аккаунт хранится у тебя на устройстве":["No e-mail, no password — your account stays on your device","Sans e-mail ni mot de passe — ton compte reste sur ton appareil"],
+"Создать аккаунт":["Create account","Créer un compte"],"Пригласи друзей — кнопка «Скопировать приглашение» вверху":["Invite friends with the “Copy invite” button at the top", "Invite tes amis avec le bouton « Copier l’invitation » en haut"],"Канал: пишет автор, остальные читают и ставят реакции. Пригласи людей — кнопка «Скопировать приглашение» вверху.":["Channel: the author posts, everyone else reads and reacts. Invite people with the “Copy invite” button at the top.", "Canal : l’auteur publie, les autres lisent et réagissent. Invite avec « Copier l’invitation » en haut."],"Группа: сообщения видят все участники. Пригласи людей — кнопка «Скопировать приглашение» вверху.":["Group: every member sees the messages. Invite people with the “Copy invite” button at the top.", "Groupe : tous les membres voient les messages. Invite avec « Copier l’invitation » en haut."],"Группа":["Group", "Groupe"],"В канале пишет только автор":["Only the author posts in a channel", "Seul l'auteur publie dans un canal"],"Голосовые пока только в комнатах на двоих":["Voice messages work only in one-to-one rooms for now", "Les vocaux ne marchent que dans les salons à deux pour le moment"],"КАНАЛ":["CHANNEL", "CANAL"],"ГРУППА":["GROUP", "GROUPE"],"АВТОР":["AUTHOR", "AUTEUR"],"{a} в сети · {b} участников":["{a} online · {b} members", "{a} en ligne · {b} membres"],"Только автор канала может писать":["Only the channel author can post", "Seul l'auteur du canal peut écrire"],"Написать сообщение":["Write a message", "Écrire un message"],"Ссылка-приглашение скопирована — отправь её друзьям":["Invite link copied — send it to your friends", "Lien d'invitation copié — envoie-le à tes amis"],"👥 Создать группу":["👥 New group", "👥 Nouveau groupe"],"📢 Создать канал":["📢 New channel", "📢 Nouveau canal"],"Новая группа или канал":["New group or channel", "Nouveau groupe ou canal"],"👥 Группа":["👥 Group", "👥 Groupe"],"📢 Канал":["📢 Channel", "📢 Canal"],"Пишут все участники":["Everyone can post", "Tout le monde peut écrire"],"Пишешь только ты, остальные читают":["Only you post, others read", "Toi seul publies, les autres lisent"],"Название":["Name", "Nom"],"Создать":["Create", "Créer"],"Звонки пока только в комнатах на двоих. В группах и каналах — сообщения, стикеры, реакции, ответы и закрепы. Вступают по ссылке-приглашению.":["Calls work only in one-to-one rooms for now. Groups and channels have messages, stickers, reactions, replies and pins. People join with the invite link.", "Les appels ne marchent que dans les salons à deux pour l'instant. Groupes et canaux : messages, stickers, réactions, réponses, épingles. On rejoint par le lien."],"Модератор приложения Fedophone":["Fedophone app moderator", "Modérateur de l'app Fedophone"],"Роль":["Role", "Rôle"],"Создатель Fedophone — автор приложения.":["Fedophone creator — made the app.", "Créateur de Fedophone — a fait l'app."],"Модератор приложения Fedophone. Следит за порядком во всём приложении — это не роль в отдельном канале или группе.":["Fedophone app moderator. Keeps order across the whole app — this is not a role in a single channel or group.", "Modérateur de l'app Fedophone, sur toute l'app — pas un rôle d'un seul canal ou groupe."],"Подтверждённый аккаунт: известный человек или блогер.":["Verified account: a public figure or creator.", "Compte vérifié : personnalité ou créateur."],"Голосовое":["Voice", "Vocal"],"Удалить запись":["Discard recording", "Supprimer l'enregistrement"],"Esc — отмена":["Esc to cancel", "Échap pour annuler"],"Исчезающие сообщения ✦":["Disappearing messages ✦", "Messages éphémères ✦"],"Исчезающее сообщение":["Disappearing message", "Message éphémère"],"Новые сообщения исчезнут через {t}":["New messages disappear after {t}", "Les nouveaux messages disparaissent après {t}"],"Исчезающие сообщения выключены":["Disappearing messages off", "Messages éphémères désactivés"],"Напомню через {t}":["I'll remind you in {t}", "Rappel dans {t}"],"мин":["min", "min"],"ч":["h", "h"],"Напомнить":["Remind me", "Me rappeler"],"20 мин":["20 min", "20 min"],"1 ч":["1 h", "1 h"],"3 ч":["3 h", "3 h"],"Озвучка недоступна":["Text-to-speech unavailable", "Synthèse vocale indisponible"],"Больше реакций ✦":["More reactions ✦", "Plus de réactions ✦"],"Прочитать вслух":["Read aloud", "Lire à voix haute"],"Удалить у всех":["Delete for everyone", "Supprimer pour tous"],"Удалить у меня":["Delete for me", "Supprimer pour moi"],"Это функция Fedophone PLUS":["This is a Fedophone PLUS feature", "Fonction Fedophone PLUS"],"Правила":["Terms","Conditions"],"Клинок":["Blade", "Lame"],"Карбон":["Carbon", "Carbone"],"Хром":["Chrome", "Chrome"],"Инферно":["Inferno", "Inferno"],"Яд":["Venom", "Venin"],"Тень":["Shadow", "Ombre"],"Роял":["Royal", "Royal"],"Тактик":["Tactical", "Tactique"],"В сети":["Online", "En ligne"],"Отошёл":["Idle", "Absent"],"Не беспокоить":["Do not disturb", "Ne pas déranger"],"Невидимка":["Invisible", "Invisible"],"Тебя видно как обычно":["Friends see you as usual", "Visible comme d’habitude"],"Друг видит, что ты отошёл":["Your friend sees you are away", "Ton ami voit que tu es absent"],"Без звуков сообщений":["No message sounds", "Sans sons de messages"],"Друг видит тебя не в сети":["You appear offline", "Tu apparais hors ligne"],"Свой статус: чем занят?":["Custom status: what are you up to?", "Statut perso : tu fais quoi ?"],"Убрать":["Clear", "Effacer"],"Статус":["Status", "Statut"],"Ответить":["Reply", "Répondre"],"Изменить":["Edit", "Modifier"],"Копировать текст":["Copy text", "Copier le texte"],"Копировать выделенное":["Copy selection", "Copier la sélection"],"Закрепить":["Pin", "Épingler"],"Открепить":["Unpin", "Désépingler"],"Удалить":["Delete", "Supprimer"],"Удалить сообщение у вас обоих?":["Delete this message for both of you?", "Supprimer ce message pour vous deux ?"],"Скопировано":["Copied", "Copié"],"Сообщение закреплено":["Message pinned", "Message épinglé"],"Сообщение откреплено":["Message unpinned", "Message désépinglé"],"Ответ для":["Replying to", "Réponse à"],"Редактирование":["Editing", "Modification"],"Esc — отмена":["Esc to cancel", "Échap pour annuler"],"(изменено)":["(edited)", "(modifié)"],"Закреплено":["Pinned", "Épinglé"],"Закреплённые":["Pinned", "Épinglés"],"Закреплённые сообщения":["Pinned messages", "Messages épinglés"],"Пока ничего не закреплено. Правый клик по сообщению → «Закрепить».":["Nothing pinned yet. Right-click a message → Pin.", "Rien d’épinglé. Clic droit sur un message → Épingler."],"сообщение":["message", "message"],"Голосовое сообщение":["Voice message", "Message vocal"],"Слушать":["Play", "Écouter"],"Скорость":["Speed", "Vitesse"],"Это голосовое есть только на устройстве друга":["This voice message is only on your friend’s device", "Ce vocal n’est que sur l’appareil de ton ami"],"Сначала зайди в комнату":["Join a room first", "Rejoins d’abord un salon"],"Нет доступа к микрофону":["No microphone access", "Pas d’accès au micro"],"Голосовые отправляются, когда друг в сети":["Voice messages are sent while your friend is online", "Les vocaux partent quand ton ami est en ligne"],"Слишком длинное голосовое":["Voice message is too long", "Vocal trop long"],"Отмена":["Cancel", "Annuler"],"Отправить":["Send", "Envoyer"],"Чтобы друг видел минуту матча и счёт: Steam → Dota 2 → Свойства → Параметры запуска → впиши -gamestateintegration и перезапусти игру.":["To show the match minute and score: Steam → Dota 2 → Properties → Launch options → add -gamestateintegration and restart the game.", "Pour montrer la minute du match : Steam → Dota 2 → Propriétés → Options de lancement → ajoute -gamestateintegration et relance le jeu."],"Подтверждённый аккаунт":["Verified account", "Compte vérifié"],"Чаты":["Chats", "Discussions"],"Галочка":["Verification", "Vérification"],"О приложении":["About", "À propos"],"Все комнаты, где ты общался. Удаляется только у тебя — у друга чат останется.":["Every room you have chatted in. Deleting removes it only for you — your friend keeps it.", "Tous les salons où tu as discuté. La suppression ne concerne que toi."],"Удалить все чаты":["Delete all chats", "Supprimer toutes les discussions"],"Галочка подтверждения":["Verification checkmark", "Badge de vérification"],"Синюю галочку у ника получают блогеры и известные люди — от 10 000 подписчиков на одной площадке (TikTok, YouTube, Twitch, Instagram, Telegram, VK).":["Creators and public figures with 10,000+ followers on one platform (TikTok, YouTube, Twitch, Instagram, Telegram, VK) get a blue checkmark next to their name.", "Les créateurs avec 10 000+ abonnés sur une plateforme (TikTok, YouTube, Twitch, Instagram, Telegram, VK) obtiennent un badge bleu."],"Площадка":["Platform", "Plateforme"],"Ссылка на твой канал":["Link to your channel", "Lien vers ta chaîne"],"Сколько подписчиков":["Followers", "Abonnés"],"Пару слов о себе":["A few words about you", "Quelques mots sur toi"],"Другое":["Other", "Autre"],"Отправить заявку на почту":["Send request by e-mail", "Envoyer la demande par e-mail"],"Откроется твоя почта с готовым письмом — просто нажми «Отправить». Если всё подтвердится, придёт код: вставь его в «Мой профиль → Значок роли», и галочка появится.":["Your mail app opens with the letter ready — just press Send. Once confirmed you get a code: paste it into My profile → Role badge and the checkmark appears.", "Ton app mail s'ouvre avec la lettre prête — envoie-la. Après validation tu reçois un code à coller dans Mon profil → Badge de rôle."],"Версия для Windows":["Windows app version", "Version Windows"],"Последняя версия":["Latest version", "Dernière version"],"Интерфейс обновляется сам, без скачивания. Программу для Windows нужно обновлять, только когда выходит новая версия — она сама предложит, скачает и поставит поверх, без переустановки и без выхода из аккаунта.":["The interface updates by itself, nothing to download. The Windows app only needs an update when a new version is out — it offers it, downloads it and installs over the old one, without reinstalling or signing you out.", "L'interface se met à jour seule. L'app Windows se met à jour seulement pour une nouvelle version — elle la propose, la télécharge et l'installe par-dessus, sans te déconnecter."],"Проверка связи":["Connection test", "Test de connexion"],"Канал в Telegram":["Telegram channel", "Canal Telegram"],"Конфиденциальность":["Privacy", "Confidentialité"],"Чатов пока нет":["No chats yet", "Aucune discussion"],"{n} сообщ.":["{n} msgs", "{n} msgs"],"Открыть":["Open", "Ouvrir"],"Удалить":["Delete", "Supprimer"],"Удалить все чаты вместе с перепиской? Это только у тебя.":["Delete all chats with their messages? Only on your side.", "Supprimer toutes les discussions ? Seulement chez toi."],"Все чаты удалены":["All chats deleted", "Discussions supprimées"],"Чтобы мы поняли, что канал твой, на время проверки добавь в описание канала код {c}.":["To prove the channel is yours, put the code {c} in its description while we check.", "Pour prouver que la chaîne est à toi, mets le code {c} dans sa description pendant la vérification."],"Вставь ссылку на канал":["Paste the link to your channel", "Colle le lien de ta chaîne"],"не установлена":["not installed", "non installée"],"Океан":["Ocean", "Océan"],"Закат":["Sunset", "Coucher"],"Изумруд":["Emerald", "Émeraude"],"Карамель":["Candy", "Bonbon"],"Радар":["Radar", "Radar"],"Бриллиант":["Diamond", "Diamant"],"Бездна":["Void", "Néant"],"Лава":["Lava", "Lave"],"Орбита":["Orbit", "Orbite"],"Продолжить без аккаунта":["Continue without an account","Continuer sans compte"],"Без аккаунта: всё работает, кроме ретранслятора и переноса профиля. Войти можно позже.":["Without an account everything works except the relay and profile sync. You can sign in later.","Sans compte, tout marche sauf le relais et la synchro du profil. Tu peux te connecter plus tard."],"Связь тормозит — перестраиваю маршрут…":["The connection is lagging — rerouting…","La connexion rame — changement de route…"],"Сейчас видно:":["Showing now:","Affiché :"],"✅ Игра определяется сама. Сейчас ты ни во что не играешь — друзья видят просто «в сети».":["✅ Your game is detected automatically. You are not playing anything right now — friends just see you as online.","✅ Ton jeu est détecté tout seul. Tu ne joues à rien pour l'instant — tes amis te voient simplement en ligne."],"✅ Ты в Fedophone для Windows: игра определяется сама.":["✅ You are in Fedophone for Windows: your game is detected automatically.","✅ Tu es dans Fedophone pour Windows : ton jeu est détecté tout seul."],"Политика конфиденциальности":["Privacy policy","Politique de confidentialité"],"Без почты и пароля — аккаунт хранится у тебя на устройстве":["No e-mail, no password — your account stays on your device","Sans e-mail ni mot de passe — ton compte reste sur ton appareil"],
 "Как тебя зовут?":["What should we call you?","Comment t'appelles-tu ?"],"Твой ник":["Your name","Ton pseudo"],"Цвет аватарки":["Avatar colour","Couleur d'avatar"],"Рамка":["Frame","Cadre"],
 "Готово":["Done","Terminé"],"Назад":["Back","Retour"],"Ник — минимум 2 символа":["Your name needs at least 2 characters","Le pseudo doit faire au moins 2 caractères"],
 "Чат, стикеры и звонки с другом — напрямую, без VPN.":["Chat, stickers and calls with a friend — directly, no VPN.","Chat, stickers et appels avec un ami — en direct, sans VPN."],
@@ -1509,7 +1544,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 
 /* ---------- Fedophone stickers: Mochi, Kitty, Candy ---------- */
 const STK=(()=>{
-  const ink='#2b1d2e',ln=(d,w=5)=>`<path d="${d}" stroke="${ink}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const ink='#2b1d2e',ln=(d,w=4)=>`<path d="${d}" stroke="${ink}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
   const H=(x,y,c,s)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 3C0-1-6-1-6 3C-6 7 0 10 0 12C0 10 6 7 6 3C6-1 0-1 0 3Z" fill="${c}"/>`;
   const star=(x,y,s,c='#fff')=>`<path d="M${x} ${y-s}Q${x+s*.2} ${y-s*.2} ${x+s} ${y}Q${x+s*.2} ${y+s*.2} ${x} ${y+s}Q${x-s*.2} ${y+s*.2} ${x-s} ${y}Q${x-s*.2} ${y-s*.2} ${x} ${y-s}Z" fill="${c}"/>`;
   const dot=`<ellipse cx="45" cy="57" rx="6" ry="8" fill="${ink}"/><ellipse cx="75" cy="57" rx="6" ry="8" fill="${ink}"/><circle cx="47.5" cy="53.5" r="2.4" fill="#fff"/><circle cx="77.5" cy="53.5" r="2.4" fill="#fff"/>`;
@@ -1606,10 +1641,10 @@ const STK=(()=>{
   const cache={};
   function svg(s){
     const ph=([...s.id].reduce((h,c)=>h*31+c.charCodeAt(0),7)%26)/10;
-    const cheeks=`<ellipse cx="35" cy="70" rx="7.5" ry="4.5" fill="#ff5c8d" opacity="${s.x==='blush'?.9:.45}"/><ellipse cx="85" cy="70" rx="7.5" ry="4.5" fill="#ff5c8d" opacity="${s.x==='blush'?.9:.45}"/>`;
+    const cheeks=`<ellipse cx="35" cy="70" rx="7.5" ry="4.5" fill="#ff5c8d" opacity="${s.x==='blush'?.8:.28}"/><ellipse cx="85" cy="70" rx="7.5" ry="4.5" fill="#ff5c8d" opacity="${s.x==='blush'?.8:.28}"/>`;
     const eyes=BLINK.has(s.e)?`<g transform="translate(0 57)"><g><animateTransform attributeName="transform" type="scale" values="1 1;1 1;1 .08;1 1" keyTimes="0;.9;.95;1" dur="4.2s" begin="-${ph}s" repeatCount="indefinite"/><g transform="translate(0 -57)">${E[s.e]}</g></g></g>`:E[s.e];
     const blob='M60 16c27 0 44 17 44 45s-17 44-44 44-44-16-44-44 17-45 44-45z';
-    const body=`${s.cat?ears:''}<path d="${blob}" fill="url(#g)" stroke="#fff" stroke-width="6"/><path d="${blob}" fill="url(#sh)"/>`+
+    const body=`${s.cat?ears:''}<path d="${blob}" fill="url(#g)" stroke="#fff" stroke-width="4"/><path d="${blob}" fill="url(#sh)"/>`+
       `<ellipse cx="40" cy="33" rx="13" ry="6" fill="#fff" opacity=".55" transform="rotate(-28 40 33)"/><circle cx="27" cy="46" r="3.2" fill="#fff" opacity=".5"/>`+
       `${cheeks}${s.cat?whisk:''}${eyes}${M[s.m]}${s.x?X[s.x]:''}`;
     return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -12 136 136"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${s.c[0]}"/><stop offset="1" stop-color="${s.c[1]}"/></linearGradient>`+
@@ -1656,8 +1691,8 @@ const STK=(()=>{
   const ESC=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const candy=s=>{const t=ESC(s.t),n=[...s.t].length,fs=Math.min(92,n>2?92/(.8*n):104/(.7*n));
     return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${s.c[0]}"/><stop offset="1" stop-color="${s.c[1]}"/></linearGradient><linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset=".46" stop-color="#fff" stop-opacity=".18"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient><filter id="d"><feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#2b1d2e" flood-opacity=".35"/></filter></defs>`+
-      `<g transform="rotate(${s.r||0} 64 64)" filter="url(#d)" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="${fs.toFixed(1)}" text-anchor="middle" dominant-baseline="central"><animateTransform attributeName="transform" type="rotate" additive="sum" values="0 64 64;-4 64 64;3 64 64;0 64 64" dur="2.8s" repeatCount="indefinite"/>`+
-      `<text x="64" y="66" fill="none" stroke="#2b1d2e" stroke-width="15" stroke-linejoin="round">${t}</text><text x="64" y="66" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round">${t}</text>`+
+      `<g transform="rotate(${s.r||0} 64 64)" filter="url(#d)" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="${fs.toFixed(1)}" text-anchor="middle" dominant-baseline="central"><animateTransform attributeName="transform" type="rotate" additive="sum" values="0 64 64;-2 64 64;2 64 64;0 64 64" dur="3.4s" repeatCount="indefinite"/>`+
+      `<text x="64" y="66" fill="none" stroke="#17111f" stroke-width="12" stroke-linejoin="round">${t}</text><text x="64" y="66" fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round">${t}</text>`+
       `<text x="64" y="66" fill="url(#g)">${t}</text><text x="64" y="66" fill="url(#h)">${t}</text></g>${s.x?DEC[s.x]:''}</svg>`};
   const P={pink:['#ffb3e0','#ff3d8f'],blue:['#a9e8ff','#2f7bff'],yel:['#fff08a','#ff9a1a'],mint:['#b6ffd9','#14b87a'],pur:['#e2c6ff','#7a3dff'],red:['#ffb0a0','#ff2d4a'],org:['#ffd59a','#ff5a1a'],teal:['#a9fbff','#0fa8bd']};
   const CANDY=[
@@ -1672,16 +1707,49 @@ const STK=(()=>{
     {id:'c_afk',n:'AFK',t:'AFK',c:P.pur,r:-4,x:'st'},{id:'c_p1',n:'+1',t:'+1',c:P.blue,r:6,x:'sp'},{id:'c_100',n:'100',t:'100',c:P.red,r:-6,x:'sp'},
   ];
   CANDY.forEach(s=>{s.pack='candy';LIST.push(s);put(s.id,candy(s))});
+  /* "Pro" — clean esports-style tiles: one bold icon, one short word, a soft light sweep */
+  const PI={trophy:'M7 3h10v3h3a3 3 0 0 1-3 4.6A5 5 0 0 1 13.2 14v3H16v3H8v-3h2.8v-3A5 5 0 0 1 7 10.6 3 3 0 0 1 4 6h3Z',bolt:'M13 2 4 14h6l-1 8 9-12h-6Z',
+    thumb:'M2 10h4v11H2ZM8 21V10l5-8c1.7 0 2.7 1.3 2.3 3L14.5 9H20a2 2 0 0 1 2 2.3l-1.5 8A2 2 0 0 1 18.5 21Z',play:'M7 4v16l13-8Z',
+    moon:'M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z',star:'M12 2l3 6.6 7.2.7-5.4 4.8 1.6 7.1L12 17.6 5.6 21.2l1.6-7.1L1.8 9.3 9 8.6Z',
+    heart:'M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11Z',flame:'M12 22c-4 0-7-2.8-7-6.5 0-3.4 2.4-5 3.4-8.3 1.3 1.1 1.9 2.6 1.9 4 .9-2 2.2-4.7 1.5-7.2C16 6.6 19 10.6 19 15.5 19 19.2 16 22 12 22Z',
+    glass:'M6 2h12v4.5l-4.2 5.5 4.2 5.5V22H6v-4.5l4.2-5.5L6 6.5Z',skull:'M12 2C7 2 4 5.5 4 10c0 2.7 1.3 4.7 3 5.7V19h10v-3.3c1.7-1 3-3 3-5.7 0-4.5-3-8-8-8Zm-3.2 7.2a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2Zm6.4 0a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM9 20h6v2H9Z',
+    flag:'M5 2h2v20H5ZM8 3h11l-2.5 4.5L19 12H8Z'};
+  const PL={check:'M4.5 12.5l5 5L19.5 7',cross:'M6 6l12 12M18 6 6 18',clock:'M12 7v5l3.5 2.5M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Z',
+    target:'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18ZM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z',laugh:'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18ZM8 10l1.5-1.2L11 10M13 10l1.5-1.2L16 10M8 14h8a4 4 0 0 1-8 0Z'};
+  const PC={gold:['#ffd45a','#b8740a'],blue:['#4f86ff','#1d3fb3'],pur:['#9b6bff','#4a22b8'],org:['#ff9a3d','#c2410c'],grn:['#2fd27c','#0b7a43'],red:['#ff5a6a','#a3122a'],
+    cyan:['#2fd0ff','#0a6f9e'],slate:['#6b7385','#2a2f3a'],ind:['#6a6ff7','#25288f'],gray:['#9aa3b5','#3e4554'],pink:['#ff6fae','#b3175e'],coal:['#4a4f5c','#14161b'],teal:['#26d3c4','#0b6b66']};
+  const pro=s=>{const ic=PI[s.i]?`<path d="${PI[s.i]}" fill="#fff"/>`:PL[s.i]?`<path d="${PL[s.i]}" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`:
+      `<text x="12" y="13" font-family="Arial Black,Arial" font-weight="900" font-size="20" fill="#fff" text-anchor="middle" dominant-baseline="central">${ESC(s.i)}</text>`;
+    const fs=s.t.length>4?17:s.t.length>3?20:23;
+    return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${s.c[0]}"/><stop offset="1" stop-color="${s.c[1]}"/></linearGradient>`+
+      `<linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>`+
+      `<linearGradient id="sw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>`+
+      `<clipPath id="c"><rect x="10" y="10" width="108" height="108" rx="28"/></clipPath><filter id="d"><feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#000" flood-opacity=".35"/></filter></defs>`+
+      `<g filter="url(#d)"><rect x="10" y="10" width="108" height="108" rx="28" fill="url(#g)"/></g><g clip-path="url(#c)"><rect x="10" y="10" width="108" height="108" fill="url(#h)"/>`+
+      `<rect x="-60" y="0" width="46" height="128" fill="url(#sw)" transform="skewX(-18)"><animate attributeName="x" values="-80;180;180" keyTimes="0;.45;1" dur="3.6s" repeatCount="indefinite"/></rect></g>`+
+      `<rect x="11" y="11" width="106" height="106" rx="27" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>`+
+      `<g transform="translate(64 52) scale(2.15) translate(-12 -12)">${ic}</g>`+
+      `<text x="64" y="98" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="${fs}" letter-spacing="1.5" fill="#fff" text-anchor="middle" opacity=".96">${ESC(s.t)}</text></svg>`};
+  const PRO=[
+    {id:'p_gg',n:'GG',t:'GG',i:'trophy',c:PC.gold},{id:'p_wp',n:'WP',t:'WP',i:'thumb',c:PC.blue},{id:'p_ez',n:'EZ',t:'EZ',i:'bolt',c:PC.pur},
+    {id:'p_lol',n:'LOL',t:'LOL',i:'laugh',c:PC.org},{id:'p_ok',n:'OK',t:'OK',i:'check',c:PC.grn},{id:'p_no',n:'NO',t:'NO',i:'cross',c:PC.red},
+    {id:'p_go',n:'GO',t:'GO',i:'play',c:PC.cyan},{id:'p_brb',n:'BRB',t:'BRB',i:'clock',c:PC.slate},{id:'p_afk',n:'AFK',t:'AFK',i:'moon',c:PC.ind},
+    {id:'p_rip',n:'RIP',t:'RIP',i:'skull',c:PC.gray},{id:'p_nice',n:'NICE',t:'NICE',i:'star',c:PC.pink},{id:'p_ff',n:'FF',t:'FF',i:'flag',c:PC.coal},
+    {id:'p_mid',n:'MID',t:'MID',i:'target',c:PC.red},{id:'p_love',n:'LOVE',t:'LOVE',i:'heart',c:PC.pink},{id:'p_fire',n:'FIRE',t:'FIRE',i:'flame',c:PC.org},
+    {id:'p_wait',n:'WAIT',t:'WAIT',i:'glass',c:PC.teal},{id:'p_q',n:'?',t:'WHAT',i:'?',c:PC.pur},{id:'p_ex',n:'!',t:'WOW',i:'!',c:PC.gold},
+    {id:'p_glhf',n:'GL HF',t:'GL HF',i:'star',c:PC.cyan},{id:'p_help',n:'HELP',t:'HELP',i:'!',c:PC.red}];
+  PRO.forEach(s=>{s.pack='pro';LIST.push(s);put(s.id,pro(s))});
+
   // old "mid or feed" stickers in saved chats keep showing — as their closest Candy twin
   const OLD={m_gg:'c_gg',m_mid:'c_qe',m_ramp:'c_wow',m_feed:'c_sad',m_gank:'c_ex',m_tilt:'c_ee',m_imba:'c_100',m_back:'c_p1',m_heal:'c_lt3',m_mana:'c_dots',m_lag:'c_qqq',m_afk:'c_afk',m_push:'c_yes',m_win:'c_gg',m_rep:'c_no'};
   Object.keys(OLD).forEach(k=>{cache[k]=cache[OLD[k]];still[k]=still[OLD[k]]});
-  const PACKS=[['fedya','Mochi'],['kitty','Kitty'],['candy','Candy']];
+  const PACKS=[['pro','Pro'],['candy','Candy'],['fedya','Mochi'],['kitty','Kitty']];
   return{LIST,PACKS,url:id=>cache[id],still:id=>still[id]||cache[id],has:id=>!!cache[id]};
 })();
 
 /* ---------- name badges: tiny glossy icons drawn to read well at 18 px ---------- */
-const BADGE=(()=>{const K='#1d1424',S=`stroke="${K}" stroke-width="1.7" stroke-linejoin="round"`;
-  const gl=(x,y,rx,ry)=>`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#fff" opacity=".6" transform="rotate(-30 ${x} ${y})"/>`;
+const BADGE=(()=>{const K='#1d1424',S=`stroke="rgba(8,6,16,.5)" stroke-width="1.1" stroke-linejoin="round"`;
+  const gl=(x,y,rx,ry)=>`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#fff" opacity=".38" transform="rotate(-30 ${x} ${y})"/>`;
   const L=[
     {id:'b_crown',n:'Crown',c:['#fff1a8','#f0a81a'],d:`<path d="M4 25 3 10l7 6 6-10 6 10 7-6-1 15Z" fill="url(#a)" ${S}/><path d="M4.5 21h23" stroke="${K}" stroke-width="1.4" opacity=".6"/><circle cx="16" cy="18" r="2.4" fill="#ff3b61" stroke="${K}" stroke-width="1"/>${gl(9,14,3,1.2)}`},
     {id:'b_star',n:'Star',c:['#fff3a0','#ffb300'],d:`<path d="M16 3l3.6 8.2 8.9.8-6.8 5.9 2 8.8L16 22.1l-7.7 4.6 2-8.8-6.8-5.9 8.9-.8Z" fill="url(#a)" ${S}/>${gl(12,11,3,1.3)}`},
@@ -1709,6 +1777,14 @@ const BADGE=(()=>{const K='#1d1424',S=`stroke="${K}" stroke-width="1.7" stroke-l
     {id:'b_candy',n:'Candy',c:['#fff3a0','#ff9a1a'],d:`<path d="M4 9l5 4-5 4ZM28 23l-5-4 5-4Z" fill="#ff6fa5" ${S}/><ellipse cx="16" cy="16" rx="8.4" ry="6.4" fill="url(#a)" transform="rotate(-20 16 16)" ${S}/><path d="M11 13l9 6M13.5 11l8 5.4" stroke="#ff4f9a" stroke-width="1.6" stroke-linecap="round"/>`},
     {id:'b_cat',n:'Cat',c:['#ffd59a','#ff9a3c'],d:`<path d="M5 28V8l6 5h10l6-5v20Z" fill="url(#a)" ${S}/><ellipse cx="11.5" cy="18" rx="1.6" ry="2.2" fill="${K}"/><ellipse cx="20.5" cy="18" rx="1.6" ry="2.2" fill="${K}"/><path d="M14.5 22h3l-1.5 1.6Z" fill="#ff6fa5"/><path d="M3 20h5M3 23l5-1M29 20h-5M29 23l-5-1" stroke="${K}" stroke-width="1" opacity=".7"/>`},
     {id:'b_skull',n:'Skull',c:['#ffffff','#cfd3dc'],d:`<path d="M16 3C9.4 3 5 7.5 5 13.4c0 3.6 1.7 6.2 4.1 7.6V25h13.8v-4c2.4-1.4 4.1-4 4.1-7.6C27 7.5 22.6 3 16 3Z" fill="url(#a)" ${S}/><circle cx="11.7" cy="13.6" r="2.9" fill="${K}"/><circle cx="20.3" cy="13.6" r="2.9" fill="${K}"/><path d="M16 17.5l-1.6 3h3.2Z" fill="${K}"/><path d="M12.4 25v3M16 25v3.4M19.6 25v3" stroke="${K}" stroke-width="1.7"/>`},
+    {id:'b_rank',n:'Rank',c:['#fff1b8','#c9a227'],d:`<path d="M5 6.5l11 6.5 11-6.5v5L16 18 5 11.5Z" fill="url(#a)" ${S}/><path d="M5 15l11 6.5L27 15v5l-11 6.5L5 20Z" fill="url(#a)" ${S}/>`},
+    {id:'b_trophy',n:'Trophy',c:['#fff1b8','#d4a017'],d:`<path d="M9.5 4h13v7a6.5 6.5 0 0 1-13 0Z" fill="url(#a)" ${S}/><path d="M9.5 6.5H5c0 4.2 2.4 6.3 5.2 6.6M22.5 6.5H27c0 4.2-2.4 6.3-5.2 6.6" fill="none" stroke="url(#a)" stroke-width="2"/><path d="M14 17.3h4v4.7h-4ZM10 22h12v5H10Z" fill="url(#a)" ${S}/>${gl(13,8,2,1)}`},
+    {id:'b_shield',n:'Shield',c:['#cfe0ff','#3a5fd9'],d:`<path d="M16 3l11 4v8.2c0 6.6-4.6 11.6-11 13.8C9.6 26.8 5 21.8 5 15.2V7Z" fill="url(#a)" ${S}/><path d="M16 7.5v18" stroke="#fff" stroke-width="1.8" opacity=".35"/>`},
+    {id:'b_blades',n:'Blades',c:['#ffffff','#9aa3b5'],d:`<path d="M5 4.5l15.5 15.5M27 4.5 11.5 20" stroke="url(#a)" stroke-width="3.6" stroke-linecap="round"/><path d="M18.5 22.5l4-4 3 3-4 4ZM13.5 22.5l-4-4-3 3 4 4Z" fill="#c9a227" ${S}/>`},
+    {id:'b_target',n:'Target',c:['#ff9a9a','#d0102b'],d:`<circle cx="16" cy="16" r="12" fill="url(#a)" ${S}/><circle cx="16" cy="16" r="7.6" fill="#fff"/><circle cx="16" cy="16" r="4" fill="url(#a)"/>`},
+    {id:'b_hex',n:'Hex',c:['#b5f6ff','#0f8fbd'],d:`<path d="M16 2.5 28 9.3v13.4L16 29.5 4 22.7V9.3Z" fill="url(#a)" ${S}/><path d="M16 2.5v27M4 9.3l24 13.4M28 9.3 4 22.7" stroke="#fff" stroke-width=".9" opacity=".3"/>`},
+    {id:'b_spade',n:'Spade',c:['#5b5f69','#121317'],d:`<path d="M16 3C11 9 5 12 5 17.6a5.4 5.4 0 0 0 9.4 3.6L13 28h6l-1.4-6.8A5.4 5.4 0 0 0 27 17.6C27 12 21 9 16 3Z" fill="url(#a)" ${S}/>${gl(11,13,2.4,1)}`},
+    {id:'b_wing',n:'Wing',c:['#ffffff','#b9c6d8'],d:`<path d="M4 10c6-1 13 1 20 7l4 7c-6-1-10-2-13-4-3 1-7 0-9-2 2 0 4-1 5-2-3 0-6-2-7-6Z" fill="url(#a)" ${S}/>`},
   ];
   const cache={};L.forEach(b=>{cache[b.id]='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${b.c[0]}"/><stop offset="1" stop-color="${b.c[1]}"/></linearGradient></defs>${b.d}</svg>`)});
   return{L,url:id=>cache[id],has:id=>!!cache[id]};
@@ -1718,9 +1794,9 @@ const badgeURL=b=>BADGE.has(b)?BADGE.url(b):STK.url(b);
 
 /* ---------- PLUS profile helpers ---------- */
 const DECOS=[['none','Без рамки'],['blade','Клинок'],['carbon','Карбон'],['chrome','Хром'],['inferno','Инферно'],['venom','Яд'],['shadow','Тень'],['royal','Роял'],['tactical','Тактик'],['neon','Неон'],['rainbow','Радуга'],['fire','Огонь'],['gold','Золото'],['ice','Лёд'],['hearts','Сердечки'],['stars','Звёзды'],['cat','Ушки'],['crown','Корона'],['galaxy','Галактика'],['lightning','Молния'],['sakura','Сакура'],['toxic','Токсик'],['glitch','Глитч'],['devil','Рожки'],['angel','Нимб'],['pixel','Пиксели'],['gamer','Геймер'],['aura','Аура'],['bubbles','Пузырьки'],['music','Музыка'],['ghost','Призраки'],['leaves','Листопад'],['cyber','Кибер'],['ocean','Океан'],['sunset','Закат'],['emerald','Изумруд'],['candy','Карамель'],['radar','Радар'],['diamond','Бриллиант'],['void','Бездна'],['lava','Лава'],['orbit','Орбита']];
-const NEWDECO=new Set(['blade','carbon','chrome','inferno','venom','shadow','royal','tactical','ocean','sunset','emerald','candy','radar','diamond','void','lava','orbit']);
+const NEWDECO=new Set(['blade','carbon','chrome','inferno','venom','shadow','royal','tactical']);
 const NSTYLES=[['none','Обычный',''],['black','Чёрный','','color:#060608;text-shadow:0 0 1px #fff,0 0 2px rgba(255,255,255,.95),0 0 8px rgba(255,255,255,.5)'],['shadow','Тень','','color:#fff;text-shadow:2px 2px 0 #000,4px 4px 0 rgba(0,0,0,.45)'],['neonpink','Неон-розовый','','color:#fff;text-shadow:0 0 4px #ff2ec4,0 0 10px #ff2ec4,0 0 20px #ff2ec4'],['matrix','Матрица','','color:#39ff14;font-family:monospace;letter-spacing:.04em;text-shadow:0 0 6px #39ff14'],['sunset','Закат','linear-gradient(90deg,#ff6e7f,#ffb86c,#ff6e7f)'],['neon','Неон','linear-gradient(90deg,#00f0ff,#ff00e6,#00f0ff)'],['rainbow','Радуга','linear-gradient(90deg,#ff5f6d,#ffc371,#47e891,#3ec7ff,#a66bff,#ff5f6d)'],['gold','Золото','linear-gradient(90deg,#b8860b,#ffd700,#fff3b0,#ffd700,#b8860b)'],['ice','Лёд','linear-gradient(90deg,#3ec7ff,#d8f6ff,#3ec7ff)'],['toxic','Токсик','linear-gradient(90deg,#a8ff78,#38e8b0,#a8ff78)'],['candy','Конфета','linear-gradient(90deg,#f093fb,#f5576c,#f093fb)'],['blood','Кровь','linear-gradient(90deg,#5a0000,#ff1a1a,#8b0000,#ff1a1a,#5a0000)'],['ocean','Океан','linear-gradient(90deg,#00c6ff,#0072ff,#00c6ff)'],['galaxy','Галактика','linear-gradient(90deg,#8e2de2,#ff5fd2,#4a00e0,#2ee6ff,#8e2de2)'],['lava','Лава','linear-gradient(90deg,#ff512f,#f09819,#ff512f)'],['chrome','Хром','linear-gradient(90deg,#8d8e8d,#ffffff,#a6a6a6,#ffffff,#8d8e8d)'],['vapor','Вейпор','linear-gradient(90deg,#ff71ce,#01cdfe,#b967ff,#ff71ce)'],['emerald','Изумруд','linear-gradient(90deg,#11998e,#38ef7d,#11998e)'],['bw','Чёрно-белый','linear-gradient(90deg,#111,#fff,#111)','filter:drop-shadow(0 0 1.5px rgba(255,255,255,.7))']];
-const ROLEPILL={verified:['Подтверждённый аккаунт','✓',''],creator:['Создатель','CREATOR','<path d="M5 18h14l1.4-9.2-4.6 3L12 5.2 8.2 11.8 3.6 8.8Z"/>'],mod:['Команда Fedophone','STAFF','<path d="M12 3 19.5 5.8V11c0 4.4-3 8.2-7.5 9.8C7.5 19.2 4.5 15.4 4.5 11V5.8Z"/>']};
+const ROLEPILL={verified:['Подтверждённый аккаунт','✓',''],creator:['Создатель','CREATOR','<path d="M5 18h14l1.4-9.2-4.6 3L12 5.2 8.2 11.8 3.6 8.8Z"/>'],mod:['Модератор приложения Fedophone','FEDOPHONE MOD','<path d="M12 2.5 20 5.5V11c0 4.7-3.2 8.7-8 10.4-4.8-1.7-8-5.7-8-10.4V5.5Z"/><path d="M8.3 9.2h7.4a1.2 1.2 0 0 1 1.2 1.2v3.3a1.2 1.2 0 0 1-1.2 1.2h-3.2l-2.6 2v-2H8.3a1.2 1.2 0 0 1-1.2-1.2v-3.3a1.2 1.2 0 0 1 1.2-1.2Z" fill="#0b1a33"/>']};
 const VCHECK='<svg viewBox="0 0 24 24"><path fill="#3b8cff" d="M12 1.6l2.5 1.8 3.1-.1 1 2.9 2.5 1.9-.9 3 .9 3-2.5 1.9-1 2.9-3.1-.1-2.5 1.8-2.5-1.8-3.1.1-1-2.9-2.5-1.9.9-3-.9-3 2.5-1.9 1-2.9 3.1.1Z"/><path d="m7.7 12.2 2.9 2.9 5.7-6" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function roleHTML(r){if(r==='verified')return`<span class="vbadge" title="${esc(tr('Подтверждённый аккаунт'))}">${VCHECK}</span>`;const x=ROLEPILL[r];return x?`<span class="role ${r}" title="${esc(tr(x[0]))}"><svg viewBox="0 0 24 24">${x[2]}</svg>${x[1]}</span>`:''}
 function nickHTML(p){const st=NSTYLES.find(x=>x[0]===p.nst)||NSTYLES[0],g=st[2],c=st[3]||'';
@@ -2050,6 +2126,7 @@ function renderMembers(){                       // the voice channel: who is in 
   $('chVoice').classList.toggle('on',callOn);
 }
 function renderPresence(){
+  if(RK)return renderGroup();
   const on=friendOnline(),known=!!(remote.uid||remote.nick!=='Друг');
   setAv($('cav'),known?remote:{...remote,nick:tr('Друг')});$('cname').innerHTML=known?nickHTML(remote):tr('Друг');
   $('cstat').innerHTML=known?statusHTML(remote,on):tr('ещё не заходил — скинь ему ссылку');
@@ -2458,6 +2535,7 @@ function takeProf(p){if(!p||typeof p!=='object')return;
   renderPresence();renderMembers()}
 function reRing(){if(calling&&Date.now()-lastRingT>3000){lastRingT=Date.now();sendCtl({type:'ring',video:calling.video})}}
 async function handleSig(m,via){
+  if(RK)return groupSig(m);
   const T=m.t;
   if(T==='hello'||T==='hi'){
     takeProf(m.p);if(m.tc){const t=cleanTurn(m.tc);if(t)remoteTurn=t}peerZ=!!m.z;softByeAt=0;
@@ -2509,10 +2587,13 @@ async function join(){loadRelay();
   if(!room){$('gen').click();room=$('room').value}
   if(room.length<6){$('lerr').textContent=tr('Слово комнаты — минимум 6 латинских букв или цифр');return}
   if(!window.crypto||!crypto.subtle||!window.RTCPeerConnection){$('lerr').textContent=tr('Этот браузер не подходит — открой сайт в Chrome, Edge, Firefox или Яндекс Браузере');return}
-  try{history.replaceState(null,'',location.pathname+'?room='+encodeURIComponent(room))}catch(e){}
+  try{const q=new URLSearchParams(location.search);const keep=q.get('k')&&(q.get('room')||'').toLowerCase().replace(/[^a-z0-9]/g,'')===room?location.search:'?room='+encodeURIComponent(room)+kindQS(room);history.replaceState(null,'',location.pathname+keep)}catch(e){}
   S.nick=$('nick').value.trim()||S.nick||tr('Гость');save();
   $('join').disabled=true;$('join').textContent=tr('Подключаюсь...');$('lerr').textContent='';
-  roomName=room;$('rname').textContent=room;rememberRoom(room);
+  {const q=new URLSearchParams(location.search);if(q.get('k')&&(q.get('room')||'').toLowerCase().replace(/[^a-z0-9]/g,'')===room)
+    setRoomKind(room,{k:q.get('k')==='c'?'c':'g',o:String(q.get('o')||'').slice(0,40),n:String(q.get('n')||tr('Группа')).slice(0,40)})}
+  RK=roomKind(room);document.body.classList.toggle('grp',!!RK);members.clear();
+  roomName=room;$('rname').textContent=RK?RK.n:room;rememberRoom(room);
   await prepRoom(room);
   $('lobby').classList.add('out');document.body.classList.add('entering');
   setTimeout(()=>{$('lobby').style.display='none';document.body.classList.remove('entering')},1200);
@@ -2528,12 +2609,13 @@ function ago(t){const s=(Date.now()-t)/1000;if(s<3600)return trf('{n} мин н�
 function renderRooms(){
   const list=(S.rooms||[]).filter(x=>x&&typeof x.r==='string');
   const box=$('rooms');box.innerHTML='';
-  list.forEach(x=>{const d=document.createElement('div');d.className='srv rm'+(x.r===roomName?' on':'');d.title=x.r;d.textContent=x.r.slice(0,2).toUpperCase();d.style.setProperty('--rc',roomColor(x.r));
+  list.forEach(x=>{const d=document.createElement('div');d.className='srv rm'+(x.r===roomName?' on':'');const K=roomKind(x.r),lb=K?K.n:x.r;d.title=lb;d.dataset.r=x.r;d.textContent=lb.slice(0,2).toUpperCase();d.style.setProperty('--rc',roomColor(x.r));
     d.onclick=()=>{if(x.r!==roomName)goRoom(x.r)};box.append(d)});
   const lb=$('recent');lb.innerHTML=list.length?'':'<div class="empty">'+tr('Тут появятся комнаты, где ты общался')+'</div>';
   list.forEach(x=>{const d=document.createElement('button');d.type='button';d.className='rc';
-    d.innerHTML=`<span class="dot" style="background:${roomColor(x.r)}">${esc(x.r.slice(0,2).toUpperCase())}</span><b>${esc(x.r)}</b><small>${ago(x.t)}</small>`;
-    d.onclick=()=>{$('room').value=x.r;join()};
+    const K=roomKind(x.r),nm=K?K.n:x.r;
+    d.innerHTML=`<span class="dot" style="background:${roomColor(x.r)}">${esc(nm.slice(0,2).toUpperCase())}</span><b>${esc(nm)}${K?(K.k==='c'?' 📢':' 👥'):''}</b><small>${ago(x.t)}</small>`;
+    d.onclick=()=>{if(K)goRoom(x.r);else{$('room').value=x.r;join()}};
     const del=document.createElement('button');del.type='button';del.className='rcx';del.title=tr('Удалить чат');del.innerHTML='&times;';
     del.onclick=e=>{e.stopPropagation();delRoom(x.r)};
     const w=document.createElement('div');w.className='rcw';w.append(d,del);lb.append(w)});
@@ -2546,7 +2628,7 @@ function delRoom(r){if(!confirm(trf('Удалить чат «{r}» вместе 
 function clearHist(){if(!joined)return;if(!confirm(tr('Очистить всю переписку в этой комнате? Это только у тебя — у друга сообщения останутся.')))return;
   hist=[];histIds=new Set();saveHist();renderHist();toast(tr('Переписка очищена'))}
 $('clrchat').onclick=clearHist;
-function goRoom(r){if(joined){endCall(true);conn.send({type:'bye'});sig({t:'bye'})}try{sessionStorage.removeItem('fp-rejoin')}catch(e){}setTimeout(()=>location.href=location.pathname+(r?'?room='+r:''),joined?250:0)}
+function goRoom(r){if(joined){endCall(true);conn.send({type:'bye'});sig({t:'bye'})}try{sessionStorage.removeItem('fp-rejoin')}catch(e){}setTimeout(()=>location.href=location.pathname+(r?'?room='+r+kindQS(r):''),joined?250:0)}
 function leave(){goRoom('')}
 
 /* ---------- presence of the direct link ---------- */
@@ -2636,7 +2718,7 @@ function onData(d,relayed){
   else if(T==='prof')takeProf(d.p);
   else if(T==='img'){remote.img=okImg(d.a,90000);remote.bimg=okImg(d.bn,140000);setAv($('themav'),remote);$('cav').removeAttribute('data-k');renderPresence();renderMembers();renderHist()}
   else if(T==='chat')recvChat(d.m,true);
-  else if(T==='medit'||T==='mdel'||T==='mpin')onChatOp(Object.assign({},d,{type:T}));
+  else if(T==='medit'||T==='mdel'||T==='mpin'||T==='mreact')onChatOp(Object.assign({},d,{type:T}));
   else if(T==='vpart'&&!relayed)onVPart(d);
   else if(T==='hsync')recvHist(d.m);
   else if(T==='qfix'){if(d.tcp&&!udpOnly){udpOnly=true;try{pc.setConfiguration({...pc.getConfiguration(),iceServers:iceCfgNow().iceServers})}catch(e){}}lastRestart=0;tryRestart()}
@@ -2644,7 +2726,7 @@ function onData(d,relayed){
   else if(T==='box'&&Array.isArray(d.l)&&relayed)d.l.slice(-50).forEach(x=>recvChat(x,false));
   else if(T==='msg'&&typeof d.t==='string')recvChat({id:'o'+Date.now()+Math.random(),u:remote.uid||'them',n:remote.nick,c:remote.avc,t:d.t,ts:Date.now()},true);   // old version
   else if(T==='sticker'&&STK.has(d.id))recvChat({id:'o'+Date.now()+Math.random(),u:remote.uid||'them',n:remote.nick,c:remote.avc,k:d.id,ts:Date.now()},true);
-  else if(T==='typing')showTyping();
+  else if(T==='typing')showTyping(d.from);
   else if(T==='vis'){peerHidden=!!d.h;tuneSenders()}
   else if(T==='ring'||T==='accept'||T==='decline'||T==='hangup')callCtl(d);
   else if(T==='react'&&REACTS.includes(d.e)&&inLimit())floatEmoji(d.e,remote.nick);
@@ -2724,16 +2806,18 @@ function cleanMsg(m){if(!m||typeof m!=='object'||typeof m.id!=='string'||m.id.le
   if(m.v&&typeof m.v==='object'&&+m.v.d>0)o.v={d:Math.min(600,+m.v.d),w:String(m.v.w||'').replace(/[^0-9]/g,'').slice(0,48)};
   if(typeof m.k==='string'&&STK.has(m.k))o.k=m.k;else if(typeof m.t==='string'&&m.t.trim())o.t=m.t.slice(0,2000);else if(!o.v)return null;
   if(m.r&&typeof m.r==='object'&&typeof m.r.id==='string')o.r={id:m.r.id.slice(0,48),n:String(m.r.n||'').slice(0,40),t:String(m.r.t||'').slice(0,140)};
-  if(+m.e>0)o.e=+m.e;return o}
-function recvChat(raw,live){const m=cleanMsg(raw);if(!m||histIds.has(m.id)||delIds().has(m.id))return;addHist(m,live!==false);
+  if(+m.e>0)o.e=+m.e;if(+m.x>0)o.x=+m.x;
+  if(m.re&&typeof m.re==='object'){const re={};Object.keys(m.re).slice(0,16).forEach(k=>{if(typeof k==='string'&&k.length<=8&&Array.isArray(m.re[k]))re[k]=m.re[k].filter(u=>typeof u==='string').map(u=>u.slice(0,40)).slice(0,12)});o.re=re}
+  return o}
+function recvChat(raw,live){const m=cleanMsg(raw);if(m&&RK&&RK.k==='c'&&m.u!==RK.o)return;if(!m||histIds.has(m.id)||delIds().has(m.id)||(m.x&&m.x<Date.now()))return;addHist(m,live!==false);
   if(m.u!==S.uid&&live!==false){if(myPres()!=='dnd')SND.msg();bumpUnread();hideTyping();if(callOn&&!S.chat)toast(`💬 ${m.n}: ${m.k?tr('стикер'):m.t.slice(0,60)}`)}}
 function addHist(m,live){histIds.add(m.id);const last=hist[hist.length-1];
   /* the friend's clock may be a little off — a live message always belongs at the end, never inside an older block */
   if(live&&last&&m.ts<last.ts)m.ts=last.ts;
   hist.push(m);
   if(last&&m.ts<last.ts){hist.sort((a,b)=>a.ts-b.ts);renderHist()}else renderMsg(m,true);saveHist()}
-function sendMsg(t,k,v,id){if(!joined)return;const m={id:id||msgId(),u:S.uid,n:S.nick||tr('Ты'),c:S.avc,d:S.deco,s:S.nst,b:S.badge,ts:Date.now()};if(k)m.k=k;else if(t)m.t=t;if(v)m.v=v;
-  if(replyTo){m.r=replyTo;setReply(null)}
+function sendMsg(t,k,v,id){if(!joined)return;if(RK&&RK.k==='c'&&RK.o!==S.uid){toast(tr('В канале пишет только автор'));return}const m={id:id||msgId(),u:S.uid,n:S.nick||tr('Ты'),c:S.avc,d:S.deco,s:S.nst,b:S.badge,ts:Date.now()};if(k)m.k=k;else if(t)m.t=t;if(v)m.v=v;
+  if(replyTo){m.r=replyTo;setReply(null)}if(vTTL&&hasPlus())m.x=Date.now()+vTTL*1000;
   addHist(m,true);if(conn.open)conn.send({type:'chat',m});else sig({t:'chat',m});saveBox()}
 function fmtTime(ts){const d=new Date(ts),n=new Date(),hm=d.toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'});
   if(d.toDateString()===n.toDateString())return trf('Сегодня в {t}',{t:hm});if(d.toDateString()===new Date(n-864e5).toDateString())return trf('Вчера в {t}',{t:hm});
@@ -2746,13 +2830,13 @@ function renderMsg(m,anim){const mine=m.u===S.uid,who=mine?'me':'them',p=profOf(
   const body=(m.r?`<div class="rq" data-jump="${esc(m.r.id)}"><b>${esc(m.r.n)}</b> ${esc(m.r.t||tr('сообщение'))}</div>`:'')+
     (m.v?voiceHTML(m):'')+(m.k?`<img class="stk" src="${STK.url(m.k)}" alt="стикер">`:m.t?`<div class="t">${linkify(esc(m.t))}${m.e?`<small class="ed">${tr('(изменено)')}</small>`:''}</div>`:'');
   if(m.r)d.classList.remove('cont');d.dataset.id=m.id;if(pins().includes(m.id))d.classList.add('pinned');
-  d.innerHTML=`${avHTML(p,who)}<div style="min-width:0;flex:1"><div class="h"><span data-who="${who}">${nickHTML(p)}</span><small>${fmtTime(m.ts)}</small><span class="pin" title="${esc(tr('Закреплено'))}">📌</span></div>${body}</div>`;
+  d.innerHTML=`${avHTML(p,who)}<div style="min-width:0;flex:1"><div class="h"><span data-who="${who}">${nickHTML(p)}</span><small>${fmtTime(m.ts)}</small><span class="pin" title="${esc(tr('Закреплено'))}">📌</span>${m.x?`<span class="ttl" title="${esc(tr('Исчезающее сообщение'))}">⏱</span>`:''}</div>${body}${reHTML(m)}</div>`;
   const box=$('msgs'),near=box.scrollHeight-box.scrollTop-box.clientHeight<160;box.append(d);
   if(anim){if(near||mine)box.scrollTo({top:1e9,behavior:'smooth'})}}
 function renderHist(){const box=$('msgs');box.innerHTML='';lastAuthor=null;
   const intro=document.createElement('div');intro.className='intro';
-  intro.innerHTML=`<div class="ic">#</div><h3>${esc(trf('Это начало чата в комнате {r}',{r:roomName}))}</h3><p>${esc(tr('Пиши, кидай стикеры, а когда захочешь поговорить — жми 📞 сверху. Сообщения хранятся у вас на устройствах и не теряются; если друг не в сети, он получит их, когда зайдёт.'))}</p>`;
-  box.append(intro);hist.forEach(m=>renderMsg(m,false));box.scrollTop=1e9}
+  intro.innerHTML=`<div class="ic">${RK?(RK.k==='c'?'📢':'👥'):'#'}</div><h3>${esc(trf('Это начало чата в комнате {r}',{r:RK?RK.n:roomName}))}</h3><p>${RK?esc(tr(RK.k==='c'?'Канал: пишет автор, остальные читают и ставят реакции. Пригласи людей — кнопка «Скопировать приглашение» вверху.':'Группа: сообщения видят все участники. Пригласи людей — кнопка «Скопировать приглашение» вверху.'))+'</p><p hidden>':''}${esc(tr('Пиши, кидай стикеры, а когда захочешь поговорить — жми 📞 сверху. Сообщения хранятся у вас на устройствах и не теряются; если друг не в сети, он получит их, когда зайдёт.'))}</p>`;
+  box.append(intro);const now=Date.now();hist.forEach(m=>{if(!(m.x&&m.x<now))renderMsg(m,false)});box.scrollTop=1e9}
 function sys(t){lastAuthor=null;const d=document.createElement('div');d.className='sys';d.textContent=tr(t);$('msgs').append(d);$('msgs').scrollTop=1e9}
 function bumpUnread(){if(!document.hidden&&document.hasFocus())return;unread++;if(!incoming)document.title=`(${unread}) Fedophone`}
 function clearUnread(){if(!unread)return;unread=0;if(!incoming)document.title='Fedophone'}
@@ -2760,7 +2844,7 @@ window.addEventListener('focus',clearUnread);document.addEventListener('visibili
 $('cform').onsubmit=e=>{e.preventDefault();const t=$('cin').value.trim();if(!t)return;if(editId){doEdit(editId,t);setEdit(null)}else sendMsg(t);$('cin').value=''};
 let typT=0,typHide=null;
 $('cin').addEventListener('input',()=>{if(!joined||!$('cin').value||Date.now()-typT<2500)return;typT=Date.now();if(conn.open)conn.send({type:'typing'});else sig({t:'typing'},'mqtt')});
-function showTyping(){const e=$('typing');if(!e)return;e.innerHTML=`<i></i><i></i><i></i> <b>${esc(remote.nick)}</b> ${tr('печатает…')}`;e.classList.add('on');clearTimeout(typHide);typHide=setTimeout(hideTyping,3500)}
+function showTyping(from){const e=$('typing');if(!e)return;let n=remote.nick;if(RK){const mm=[...members.values()].find(x=>x.from===from);n=mm?mm.nick:'…'}e.innerHTML=`<i></i><i></i><i></i> <b>${esc(n)}</b> ${tr('печатает…')}`;e.classList.add('on');clearTimeout(typHide);typHide=setTimeout(hideTyping,3500)}
 function hideTyping(){const e=$('typing');if(e)e.classList.remove('on')}
 
 /* sticker picker */
@@ -2781,6 +2865,8 @@ function openPop(who){
   $('xbanner').style.background=bannerBG(p);setAv($('xav'),p);$('xname').innerHTML=nickHTML(p);
   const g=on?p.play:'';$('xplay').innerHTML=g?gameCard(g,p):`<span class="muted">${tr(on?'в сети':'не в сети')}</span>`;
   $('xbio').textContent=p.bio||'';$('xbiobox').style.display=p.bio?'':'none';
+  {const RD={creator:'Создатель Fedophone — автор приложения.',mod:'Модератор приложения Fedophone. Следит за порядком во всём приложении — это не роль в отдельном канале или группе.',verified:'Подтверждённый аккаунт: известный человек или блогер.'};
+   $('xrolebox').style.display=p.role&&RD[p.role]?'':'none';if(p.role&&RD[p.role])$('xrole').innerHTML=roleHTML(p.role)+' <span class="rdesc">'+esc(tr(RD[p.role]))+'</span>'}
   $('pop').classList.add('open');
 }
 document.addEventListener('click',e=>{const w=e.target.closest('[data-who]');if(w&&!e.target.closest('#pop')){openPop(w.dataset.who);return}
@@ -2819,7 +2905,7 @@ $('tchat').onclick=()=>{S.chat=!S.chat;save();apply()};$('cclose').onclick=()=>{
 $('fs').onclick=()=>{const t=$('tthem');document.fullscreenElement?document.exitFullscreen():t.requestFullscreen&&t.requestFullscreen()};
 const online=/^https?:$/.test(location.protocol);
 function copyInvite(){
-  const txt=online?`${location.origin}${location.pathname}?room=${encodeURIComponent(roomName)}`:roomName;
+  const txt=online?`${location.origin}${location.pathname}?room=${encodeURIComponent(roomName)}${kindQS(roomName)}`:roomName;
   const ok=()=>toast(online?'Ссылка скопирована — отправь её другу':'Слово скопировано — отправь его другу');
   if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(ok,()=>prompt(tr('Скопируй и отправь другу:'),txt));
   else prompt(tr('Скопируй и отправь другу:'),txt);
@@ -2881,7 +2967,7 @@ loadRole();
 /* ---------- the Windows app keeps a copy of settings, avatar, banner, chats and pins in its own file.
    The app can open one of two copies of the site (Cloudflare or GitHub); each copy has its own browser storage,
    so without this a switch looked like everything was lost. ---------- */
-function STATE_KEYS(k){return k==='fedophone-settings'||/^fp-(hist|pin|del)-/.test(k)}
+function STATE_KEYS(k){return k==='fedophone-settings'||/^fp-(hist|pin|del|kind)-/.test(k)}
 var stateT=0;
 function stateSoon(){const D=window.fedoDesktop;if(!D||!D.stateSet)return;clearTimeout(stateT);stateT=setTimeout(()=>{try{
   const t=Date.now(),kv={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(STATE_KEYS(k))kv[k]=localStorage.getItem(k)}
@@ -2931,23 +3017,57 @@ function doPin(id,on,fromFriend){const l=pins().filter(x=>x!==id);if(on)l.push(i
 function onChatOp(d){if(!d||typeof d.id!=='string')return;
   if(d.type==='medit'&&typeof d.t==='string'){const m=hist.find(x=>x.id===d.id);if(m&&m.u!==S.uid&&(m.e||0)<(+d.e||1)){m.t=d.t.slice(0,2000);m.e=+d.e||Date.now();saveHist();renderHist()}}
   else if(d.type==='mdel')doDel(d.id,true);
-  else if(d.type==='mpin'&&hist.some(x=>x.id===d.id))doPin(d.id,!!d.on,true)}
+  else if(d.type==='mpin'&&hist.some(x=>x.id===d.id))doPin(d.id,!!d.on,true);
+  else if(d.type==='mreact'&&typeof d.e==='string'&&d.e.length<=8)setReact(d.id,d.e,!!d.on,typeof d.u==='string'&&d.u?d.u.slice(0,40):(remote.uid||'them'))}
 function renderPins(){const l=pins().map(id=>hist.find(m=>m.id===id)).filter(Boolean).reverse();
   $('pinl').innerHTML=l.length?l.map(m=>`<div class="pi" data-jump="${esc(m.id)}"><b>${esc(profOf(m).nick)}</b><span>${esc(snip(m))}</span><small>${fmtTime(m.ts)}</small></div>`).join(''):`<p>${esc(tr('Пока ничего не закреплено. Правый клик по сообщению → «Закрепить».'))}</p>`}
 $('pinsbtn').onclick=e=>{e.stopPropagation();const p=$('pinp');if(!p.hidden){p.hidden=true;return}renderPins();const r=$('pinsbtn').getBoundingClientRect();p.style.left=Math.min(innerWidth-340,r.left)+'px';p.style.top=(r.bottom+6)+'px';p.hidden=false};
 function jumpTo(id){const el=$('msgs').querySelector(`.msg[data-id="${CSS.escape(id)}"]`);if(!el)return;el.scrollIntoView({block:'center',behavior:'smooth'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}
+var QRE=['👍','❤️','😂','🔥','😮','😢'],MORE_RE=['🎉','💀','🤡','👀','💯','🙏','😎','🤝','🥶','😡','🤔','✅'];
+function reHTML(m){if(!m.re)return'';const ks=Object.keys(m.re).filter(k=>m.re[k].length);if(!ks.length)return'';
+  return`<div class="rx">${ks.map(k=>`<button type="button" data-re="${esc(k)}" class="${m.re[k].includes(S.uid)?'mine':''}">${esc(k)}<b>${m.re[k].length}</b></button>`).join('')}</div>`}
+function setReact(id,e,on,uid){const m=hist.find(x=>x.id===id);if(!m)return;m.re=m.re||{};const l=(m.re[e]||[]).filter(u=>u!==uid);if(on)l.push(uid);m.re[e]=l;if(!l.length)delete m.re[e];
+  saveHist();const el=$('msgs').querySelector(`.msg[data-id="${CSS.escape(id)}"]`);if(el){const old=el.querySelector('.rx');const h=reHTML(m);if(old)old.outerHTML=h||'';else if(h){const c=el.lastElementChild;c.insertAdjacentHTML('beforeend',h)}}}
+function toggleReact(id,e){const m=hist.find(x=>x.id===id);if(!m)return;const on=!(m.re&&m.re[e]&&m.re[e].includes(S.uid));setReact(id,e,on,S.uid);op({type:'mreact',id,e,on:on?1:0,u:S.uid})}
+document.addEventListener('click',e=>{const b=e.target.closest('.rx button');if(!b)return;const el=b.closest('.msg[data-id]');if(el)toggleReact(el.dataset.id,b.dataset.re)});
+// PLUS: disappearing messages
+var vTTL=0;const TTLS=[[0,''],[60,'1м'],[3600,'1ч'],[86400,'1д']];
+$('ttlbtn').onclick=()=>{if(!hasPlus()){toast(tr('Это функция Fedophone PLUS'));return}const i=(TTLS.findIndex(x=>x[0]===vTTL)+1)%TTLS.length;vTTL=TTLS[i][0];
+  $('ttlbtn').classList.toggle('on',!!vTTL);$('ttlbtn').querySelector('b').textContent=TTLS[i][1];toast(vTTL?trf('Новые сообщения исчезнут через {t}',{t:TTLS[i][1]}):tr('Исчезающие сообщения выключены'))};
+clock.every(5000,()=>{const now=Date.now();if(!hist.some(m=>m.x&&m.x<now))return;hist=hist.filter(m=>!(m.x&&m.x<now));saveHist();renderHist()});
+// PLUS: remind me
+function rems(){try{return JSON.parse(localStorage.getItem('fp-rem')||'[]')}catch(e){return[]}}
+function remind(m,min){const l=rems();l.push({id:m.id,r:roomName,t:Date.now()+min*60000,s:snip(m).slice(0,80),n:profOf(m).nick});localStorage.setItem('fp-rem',JSON.stringify(l.slice(-30)));
+  toast(trf('Напомню через {t}',{t:min<60?min+' '+tr('мин'):(min/60)+' '+tr('ч')}))}
+clock.every(15000,()=>{const now=Date.now(),l=rems(),due=l.filter(x=>x.t<=now);if(!due.length)return;localStorage.setItem('fp-rem',JSON.stringify(l.filter(x=>x.t>now)));
+  due.forEach(x=>{toast(`⏰ ${x.n}: ${x.s}`);try{SND.msg()}catch(e){}try{if(Notification.permission==='granted')new Notification('Fedophone ⏰',{body:x.n+': '+x.s})}catch(e){}if(x.r===roomName)jumpTo(x.id)})});
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=/[а-яё]/i.test(t)?'ru-RU':'en-US';speechSynthesis.speak(u)}catch(e){toast(tr('Озвучка недоступна'))}}
 const MI={reply:'<path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11Z"/>',edit:'<path d="M3 17.2V21h3.8L17.8 9.9 14 6.1 3 17.2ZM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8L19 8.8 20.7 7Z"/>',
   copy:'<path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/>',
-  pin:'<path d="M16 3v2l-1 1v5l3 3v2h-5v5l-1 1-1-1v-5H6v-2l3-3V6L8 5V3h8Z"/>',del:'<path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12ZM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4Z"/>'};
+  pin:'<path d="M16 3v2l-1 1v5l3 3v2h-5v5l-1 1-1-1v-5H6v-2l3-3V6L8 5V3h8Z"/>',del:'<path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12ZM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4Z"/>',
+  speak:'<path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4ZM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6Z"/>',
+  hide:'<path d="M12 6a9.8 9.8 0 0 1 9 6 9.9 9.9 0 0 1-2.6 3.6l1.4 1.4A11.8 11.8 0 0 0 23 12 11.8 11.8 0 0 0 7.5 5.4l1.6 1.6A9.6 9.6 0 0 1 12 6ZM2.1 3.5 4.4 5.8A11.8 11.8 0 0 0 1 12a11.8 11.8 0 0 0 15.4 6.6l3.1 3.1 1.4-1.4L3.5 2.1Z"/>',
+  bell:'<path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2Zm6-6V11a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1Z"/>'};
 document.addEventListener('contextmenu',e=>{const el=e.target.closest('#msgs .msg[data-id]');if(!el)return;const m=hist.find(x=>x.id===el.dataset.id);if(!m)return;e.preventDefault();
-  const mine=m.u===S.uid,pinned=pins().includes(m.id),sel=String(getSelection()||'').trim();
-  const items=[['reply','Ответить'],mine&&m.t?['edit','Изменить']:null,m.t||sel?['copy',sel?'Копировать выделенное':'Копировать текст']:null,['pin',pinned?'Открепить':'Закрепить'],mine?['del','Удалить']:null].filter(Boolean);
-  const mm=$('mmenu');mm.innerHTML=items.map(([k,n])=>`<button data-k="${k}" class="${k==='del'?'danger':''}"><svg viewBox="0 0 24 24" fill="currentColor">${MI[k]}</svg>${esc(tr(n))}</button>`).join('');
-  mm.hidden=false;const w=mm.offsetWidth,h=mm.offsetHeight;mm.style.left=Math.min(e.clientX,innerWidth-w-8)+'px';mm.style.top=Math.min(e.clientY,innerHeight-h-8)+'px';
-  mm.onclick=ev=>{const b=ev.target.closest('button');if(!b)return;mm.hidden=true;const k=b.dataset.k;
+  const mine=m.u===S.uid,pinned=pins().includes(m.id),sel=String(getSelection()||'').trim(),plus=hasPlus();
+  const it=(k,n,cls)=>`<button data-k="${k}" class="${cls||''}"><svg viewBox="0 0 24 24" fill="currentColor">${MI[k]}</svg>${esc(tr(n))}</button>`;
+  const mm=$('mmenu');
+  mm.innerHTML=`<div class="mrx">${QRE.map(x=>`<button data-r="${x}">${x}</button>`).join('')}<button data-k="more" class="${plus?'':'lock'}" title="${esc(tr('Больше реакций ✦'))}">＋</button></div>`+
+    it('reply','Ответить')+(mine&&m.t?it('edit','Изменить'):'')+(m.t||sel?it('copy',sel?'Копировать выделенное':'Копировать текст'):'')+(m.t?it('speak','Прочитать вслух'):'')+it('pin',pinned?'Открепить':'Закрепить')+
+    `<hr><div class="mlab">✦ PLUS · ${esc(tr('Напомнить'))}</div><div class="mchips">${[[20,'20 мин'],[60,'1 ч'],[180,'3 ч']].map(([v,n])=>`<button data-rem="${v}" class="${plus?'':'lock'}">${esc(tr(n))}</button>`).join('')}</div><hr>`+
+    (mine?it('del','Удалить у всех','danger'):it('hide','Удалить у меня','danger'));
+  mm.hidden=false;const w=mm.offsetWidth,h=mm.offsetHeight;mm.style.left=Math.min(e.clientX,innerWidth-w-8)+'px';mm.style.top=Math.max(8,Math.min(e.clientY,innerHeight-h-8))+'px';
+  mm.onclick=ev=>{const b=ev.target.closest('button');if(!b)return;
+    if(b.dataset.r){mm.hidden=true;toggleReact(m.id,b.dataset.r);return}
+    if(b.dataset.rem){if(!plus){toast(tr('Это функция Fedophone PLUS'));return}mm.hidden=true;remind(m,+b.dataset.rem);return}
+    const k=b.dataset.k;
+    if(k==='more'){if(!plus){toast(tr('Это функция Fedophone PLUS'));return}mm.querySelector('.mrx').innerHTML=MORE_RE.concat(QRE).map(x=>`<button data-r="${x}">${x}</button>`).join('');mm.querySelector('.mrx').classList.add('wide');return}
+    mm.hidden=true;
     if(k==='reply')setReply(m);else if(k==='edit')setEdit(m);
     else if(k==='copy'){navigator.clipboard.writeText(sel||m.t).then(()=>toast(tr('Скопировано')),()=>{})}
+    else if(k==='speak')speak(m.t);
     else if(k==='pin')doPin(m.id,!pinned);
+    else if(k==='hide'){const i=hist.findIndex(x=>x.id===m.id);if(i>=0){hist.splice(i,1);addDel(m.id);saveHist();renderHist()}}
     else if(k==='del'&&confirm(tr('Удалить сообщение у вас обоих?')))doDel(m.id)}});
 document.addEventListener('click',e=>{if(!e.target.closest('#mmenu'))$('mmenu').hidden=true;if(!e.target.closest('#pinp,#pinsbtn'))$('pinp').hidden=true;if(!e.target.closest('#smenu,#uav'))$('smenu').hidden=true;
   const j=e.target.closest('[data-jump]');if(j){$('pinp').hidden=true;jumpTo(j.dataset.jump)}});
@@ -2959,8 +3079,9 @@ function vDB(act,id,val){return new Promise(res=>{const go=db=>{try{const tx=db.
     const r=act==='get'?st.get(id):act==='put'?st.put(val,id):st.delete(id);r.onsuccess=()=>res(r.result||null);r.onerror=()=>res(null)}catch(e){res(null)}};
   if(vdb)return go(vdb);try{const o=indexedDB.open('fedo-voice',1);o.onupgradeneeded=()=>o.result.createObjectStore('a');o.onsuccess=()=>{vdb=o.result;go(vdb)};o.onerror=()=>res(null)}catch(e){res(null)}})}
 function vfmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
-function voiceHTML(m){const w=(m.v.w||'').padEnd(32,'2').slice(0,32).split('').map(x=>`<i style="height:${18+(+x)*8.5}%"></i>`).join('');
-  return`<div class="vm" data-vid="${esc(m.id)}" data-d="${m.v.d}"><button class="vp" type="button" title="${esc(tr('Слушать'))}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg></button><div class="vw">${w}</div><span class="vt">${vfmt(m.v.d)}</span><button class="vs" type="button" title="${esc(tr('Скорость'))}">1x</button></div>`}
+function voiceHTML(m){const w=(m.v.w||'').padEnd(32,'2').slice(0,32).split('').map(x=>`<i style="height:${14+(+x)*9.5}%"></i>`).join('');
+  return`<div class="vm" data-vid="${esc(m.id)}" data-d="${m.v.d}"><button class="vp" type="button" title="${esc(tr('Слушать'))}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg></button>`+
+    `<div class="vbody"><div class="vw">${w}</div><div class="vmeta"><span class="vt">${vfmt(m.v.d)}</span><span class="vlab">${esc(tr('Голосовое'))}</span><button class="vs" type="button" title="${esc(tr('Скорость'))}">1x</button></div></div></div>`}
 var SPEEDS=[1,1.5,2,0.75];var vPlaying=null;
 document.addEventListener('click',async e=>{const vm=e.target.closest('.vm');if(!vm)return;const id=vm.dataset.vid;
   if(e.target.closest('.vs')){const b=e.target.closest('.vs'),i=(SPEEDS.indexOf(+b.dataset.s||1)+1)%SPEEDS.length;b.dataset.s=SPEEDS[i];b.textContent=SPEEDS[i]+'x';if(vPlaying&&vPlaying.id===id)vPlaying.a.playbackRate=SPEEDS[i];return}
@@ -2977,17 +3098,17 @@ document.addEventListener('click',async e=>{const vm=e.target.closest('.vm');if(
   a.ontimeupdate=upd;a.onplay=()=>{btn.querySelector('svg').innerHTML=PA;vm.classList.add('play')};a.onpause=()=>{btn.querySelector('svg').innerHTML=PL};a.onended=stop;
   vPlaying={id,a,stop};a.play().catch(()=>{})});
 var rec=null;
-async function recStart(){if(rec)return;if(!joined){toast(tr('Сначала зайди в комнату'));return}
+async function recStart(){if(rec)return;if(!joined){toast(tr('Сначала зайди в комнату'));return}if(RK){toast(tr('Голосовые пока только в комнатах на двоих'));return}
   let st;try{st=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}})}catch(e){toast(tr('Нет доступа к микрофону'));return}
   const mime=['audio/webm;codecs=opus','audio/ogg;codecs=opus','audio/webm'].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||'';
   const mr=new MediaRecorder(st,mime?{mimeType:mime,audioBitsPerSecond:24000}:{audioBitsPerSecond:24000}),parts=[],lv=[];
   const ac=new AudioContext(),an=ac.createAnalyser();an.fftSize=512;ac.createMediaStreamSource(st).connect(an);const buf=new Uint8Array(an.fftSize);
   rec={mr,st,ac,parts,lv,t0:Date.now(),cancel:false};mr.ondataavailable=e=>{if(e.data&&e.data.size)parts.push(e.data)};mr.start(250);
-  $('vbar').hidden=false;$('vlive').innerHTML='';
+  $('vbar').hidden=false;$('vlive').innerHTML='';$('vrec').classList.add('recon');
   rec.iv=setInterval(()=>{an.getByteTimeDomainData(buf);let s=0;for(const x of buf)s+=(x-128)*(x-128);const v=Math.min(9,Math.round(Math.sqrt(s/buf.length)/4));lv.push(v);
-    const el=document.createElement('i');el.style.height=(14+v*9)+'%';const box=$('vlive');box.append(el);if(box.childElementCount>48)box.firstChild.remove();
+    const el=document.createElement('i');el.style.height=(12+v*9.5)+'%';const box=$('vlive');box.append(el);if(box.childElementCount>70)box.firstChild.remove();
     const sec=(Date.now()-rec.t0)/1000;$('vtime').textContent=vfmt(sec);if(sec>=60)recStop(true)},100)}
-function recStop(send){if(!rec)return;const r=rec;rec=null;clearInterval(r.iv);$('vbar').hidden=true;
+function recStop(send){if(!rec)return;const r=rec;rec=null;clearInterval(r.iv);$('vbar').hidden=true;$('vrec').classList.remove('recon');
   r.mr.onstop=async()=>{r.st.getTracks().forEach(t=>t.stop());try{r.ac.close()}catch(e){}
     const dur=(Date.now()-r.t0)/1000;if(!send||dur<0.6)return;
     if(!conn.open){toast(tr('Голосовые отправляются, когда друг в сети'));return}
@@ -2997,11 +3118,49 @@ function recStop(send){if(!rec)return;const r=rec;rec=null;clearInterval(r.iv);$
     for(let i=0;i<n;i++){conn.send({type:'vpart',id,i,n,mt:blob.type,d:b64.slice(i*CH,i*CH+CH)});await new Promise(x=>setTimeout(x,25))}
     sendMsg(null,null,{d:Math.round(dur*10)/10,w},id)};
   try{r.mr.stop()}catch(e){}}
-$('vrec').onclick=()=>rec?recStop(true):recStart();$('vsend').onclick=()=>recStop(true);$('vcancel').onclick=()=>recStop(false);
+$('vrec').onclick=()=>rec?recStop(true):recStart();addEventListener('keydown',e=>{if(!rec)return;if(e.key==='Escape')recStop(false);else if(e.key==='Enter'&&document.activeElement!==$('cin')){e.preventDefault();recStop(true)}});$('vsend').onclick=()=>recStop(true);$('vcancel').onclick=()=>recStop(false);
 var vparts=new Map();
 function onVPart(d){if(typeof d.id!=='string'||!(d.n>0&&d.n<40)||typeof d.d!=='string')return;let e=vparts.get(d.id);if(!e){e={n:d.n,got:0,p:[],mt:String(d.mt||'audio/webm').slice(0,40)};vparts.set(d.id,e)}
   if(!e.p[d.i]){e.p[d.i]=d.d;e.got++}if(e.got<e.n)return;vparts.delete(d.id);
   try{const bin=b64dec(e.p.join(''));vDB('put',d.id,new Blob([bin],{type:/^audio\//.test(e.mt)?e.mt:'audio/webm'}))}catch(x){}}
+
+/* ---------- groups and channels: many people, messages go to everyone through the encrypted relays ---------- */
+var members=new Map(),hiTo={};
+function roomKind(r){try{const k=JSON.parse(localStorage.getItem('fp-kind-'+r)||'null');return k&&(k.k==='g'||k.k==='c')?k:null}catch(e){return null}}
+function setRoomKind(r,k){try{localStorage.setItem('fp-kind-'+r,JSON.stringify(k))}catch(e){}stateSoon()}
+// an invite link carries the kind of room; read it before anything tidies the address bar
+{const q=new URLSearchParams(location.search),r=(q.get('room')||'').toLowerCase().replace(/[^a-z0-9]/g,'');if(r&&q.get('k'))setRoomKind(r,{k:q.get('k')==='c'?'c':'g',o:String(q.get('o')||'').slice(0,40),n:String(q.get('n')||tr('Группа')).slice(0,40)})}
+function kindQS(r){const k=roomKind(r);return k?`&k=${k.k}&o=${encodeURIComponent(k.o||'')}&n=${encodeURIComponent(k.n||'')}`:''}
+function memberSeen(m){const p=m.p||{};const key=typeof p.u==='string'&&p.u?p.u.slice(0,40):m.from;if(!key||key===S.uid)return;
+  members.set(key,{uid:key,from:m.from,t:Date.now(),nick:typeof p.n==='string'&&p.n?p.n.slice(0,40):tr('Друг'),avc:/^#[0-9a-f]{6}$/i.test(p.c||'')?p.c:'#747f8d',
+    deco:DECOS.some(x=>x[0]===p.d)?p.d:'none',nst:NSTYLES.some(x=>x[0]===p.s)?p.s:'none',badge:badgeOK(p.b)?p.b:'none',play:typeof p.pl==='string'?p.pl.slice(0,40):'',
+    pres:['on','idle','dnd','inv'].includes(p.pr)?p.pr:'on',cst:typeof p.cs==='string'?p.cs.slice(0,80):''});renderGroup()}
+function groupSig(m){const T=m.t;
+  if(T==='hello'||T==='hi'||T==='prof'){memberSeen(m);if(T==='hello'&&Date.now()-(hiTo[m.from]||0)>15000){hiTo[m.from]=Date.now();sig(Object.assign(helloMsg('hi'),{to:m.from}),'mqtt')}return}
+  if(T==='bye'){for(const [k,v] of members)if(v.from===m.from)v.t=0;renderGroup();return}
+  if(['chat','medit','mdel','mpin','mreact','typing'].includes(T))onData(Object.assign({},m,{type:T}),true)}
+function renderGroup(){if(!RK)return;const now=Date.now(),all=[...members.values()],on=all.filter(x=>now-x.t<30000&&x.pres!=='inv');
+  setAv($('cav'),{nick:RK.n,avc:roomColor(roomName),deco:'none'});const dot=$('cav').querySelector('i');if(dot)dot.remove();
+  $('cname').innerHTML=esc(RK.n)+` <span class="gk">${RK.k==='c'?tr('КАНАЛ'):tr('ГРУППА')}</span>`;
+  $('cstat').textContent=trf('{a} в сети · {b} участников',{a:on.length+1,b:all.length+1});
+  const meP=Object.assign(me(),{play:window.fedoDesktop?myPlay():(S.play||'')}),rows=[{p:meP,on:true,who:'me'}].concat(all.sort((x,y)=>(now-x.t<30000?0:1)-(now-y.t<30000?0:1)).map(p=>({p,on:now-p.t<30000&&p.pres!=='inv'})));
+  const box=$('people'),key=JSON.stringify(rows.map(r=>[r.p.uid||'me',r.on,r.p.nick,r.p.play,r.p.pres,r.p.cst,r.p.deco]));if(box.dataset.k===key)return;box.dataset.k=key;box.innerHTML='';
+  rows.forEach(x=>{const d=document.createElement('div');d.className='person'+(x.on?'':' off');if(x.who)d.dataset.who=x.who;
+    d.innerHTML='<div class="av"></div><div class="mw"><span class="mn"></span><small></small></div>';const av=d.querySelector('.av');setAv(av,x.p);
+    if(x.on)av.insertAdjacentHTML('beforeend',`<i class="${x.p.pres&&x.p.pres!=='on'?x.p.pres:''}"></i>`);
+    d.querySelector('.mn').innerHTML=nickHTML(x.p)+(RK.k==='c'&&(x.p.uid===RK.o||(x.who==='me'&&S.uid===RK.o))?` <span class="gk">${tr('АВТОР')}</span>`:'');
+    d.querySelector('small').innerHTML=x.on?(x.p.play?esc(tr('Играет в'))+' '+esc(x.p.play):x.p.cst?esc(x.p.cst):tr('в сети')):tr('не в сети');box.append(d)});
+  const ro=RK.k==='c'&&RK.o!==S.uid;$('cform').classList.toggle('ro',ro);$('cin').disabled=ro;$('cin').placeholder=ro?tr('Только автор канала может писать'):tr('Написать сообщение')}
+clock.every(5000,()=>{if(RK)renderGroup()});
+function openGroupModal(k){$('gmodal').hidden=false;$('gname').value='';$('gname').focus();$('gmodal').querySelectorAll('.gkind button').forEach(b=>b.classList.toggle('on',b.dataset.k===k))}
+$('gmodal').querySelectorAll('.gkind button').forEach(b=>b.onclick=()=>$('gmodal').querySelectorAll('.gkind button').forEach(x=>x.classList.toggle('on',x===b)));
+$('gcancel').onclick=()=>{$('gmodal').hidden=true};
+$('gcreate').onclick=()=>{const n=$('gname').value.trim();if(!n){$('gname').focus();return}const k=$('gmodal').querySelector('.gkind button.on').dataset.k;
+  const r=Array.from(crypto.getRandomValues(new Uint8Array(12)),x=>'abcdefghijkmnpqrstuvwxyz23456789'[x%32]).join('');
+  setRoomKind(r,{k,o:S.uid,n:n.slice(0,40)});$('gmodal').hidden=true;
+  try{sessionStorage.setItem('fp-newgroup','1')}catch(e){}goRoom(r)};
+$('mkgroup').onclick=()=>openGroupModal('g');$('mkchan').onclick=()=>openGroupModal('c');
+setTimeout(()=>{try{if(sessionStorage.getItem('fp-newgroup')&&joined){sessionStorage.removeItem('fp-newgroup');const u=`${location.origin}${location.pathname}?room=${encodeURIComponent(roomName)}${kindQS(roomName)}`;navigator.clipboard.writeText(u).then(()=>toast(tr('Ссылка-приглашение скопирована — отправь её друзьям')),()=>toast(tr('Пригласи друзей — кнопка «Скопировать приглашение» вверху')))}}catch(e){}},2500);
 /* ---------- Fedophone for Windows: the app tells us which game is running ---------- */
 const DESK=window.fedoDesktop||null;deskGame=null;
 /* ---------- settings: chats list, verification request, about ---------- */
@@ -3027,7 +3186,7 @@ async function renderAbout(){try{$('ab-desk').textContent=DESK&&DESK.version?awa
 document.addEventListener('click',e=>{const a=e.target.closest('.snav a');if(!a)return;const s=a.dataset.s;
   if(s==='chats')renderChatList();else if(s==='verify')renderVerify();else if(s==='about')renderAbout()});
 // right-click a room on the left rail to delete it
-$('rooms').addEventListener('contextmenu',e=>{const d=e.target.closest('.srv.rm');if(!d)return;e.preventDefault();delRoom(d.title)});
+$('rooms').addEventListener('contextmenu',e=>{const d=e.target.closest('.srv.rm');if(!d)return;e.preventDefault();delRoom(d.dataset.r||d.title)});
 
 if(DESK){document.body.classList.add('desk');if(S.play){S.play='';save()}
   if(DESK.onGame)DESK.onGame(g=>{deskGame=g&&g.name?g:null;profChanged();deskNote()});
