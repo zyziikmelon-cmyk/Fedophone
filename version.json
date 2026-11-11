@@ -1,0 +1,32 @@
+{
+ "version": "1.5.0",
+ "date": "2026-11-11",
+ "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.0/Fedophone-Setup-x64.exe",
+ "size": 94720745,
+ "sha256": "6290064c4d115b0fc8479266703571c29eeeb35cbbe39982ab44c8665517d641",
+ "notes": [
+  "Ответы, правка, копирование и закреп сообщений — правый клик по сообщению",
+  "Голосовые сообщения со скоростью 0.75x–2x",
+  "Статус как в Discord: в сети, отошёл, не беспокоить, невидимка и свой текст",
+  "Звук в играх больше не пропадает: звонок не перестраивается без нужды",
+  "Аватарка, баннер и чаты больше не пропадают после обновлений",
+  "8 новых «жёстких» рамок и новый стиль профиля",
+  "Дальше обновления будут маленькими (меньше 1 МБ), без переустановки"
+ ],
+ "notes_en": [
+  "Reply, edit, copy and pin messages — right-click a message",
+  "Voice messages with 0.75x–2x speed",
+  "Discord-style status: online, idle, do not disturb, invisible and custom text",
+  "Sound no longer drops in games: the call stops rerouting for nothing",
+  "Avatar, banner and chats are kept after updates",
+  "8 new sharp avatar frames and a new profile look",
+  "From now on updates are tiny (under 1 MB) and need no reinstall"
+ ],
+ "app": {
+  "version": "1.5.0",
+  "electron": "39.8.10",
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.0/Fedophone-app.asar",
+  "size": 423279,
+  "sha256": "f378880e586d440e02f21cb39c103110e2289882c3c91d1b3f6ffcf2b4e9674f"
+ }
+}
