@@ -1,26 +1,26 @@
 {
- "version": "1.5.0",
- "date": "2026-11-11",
- "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.0/Fedophone-Setup-x64.exe",
- "size": 94720745,
- "sha256": "6290064c4d115b0fc8479266703571c29eeeb35cbbe39982ab44c8665517d641",
+ "version": "1.5.2",
+ "date": "2026-11-12",
+ "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.2/Fedophone-Setup-x64.exe",
+ "size": 94721996,
+ "sha256": "2ab796efe2599a234efb2bb3c73e7231b477325abc6be3d7f217366722d50f8f",
  "notes": [
-  "Звонок больше не тормозит, когда ты в игре",
-  "Звук включается сам — без синей кнопки «Нажми, чтобы включить звук»",
-  "Фото и видео в чате",
-  "В статусе видно игру, плейс Roblox и сколько минут играешь"
+  "Рисование поверх показа экрана: ручка, маркер, лазер, стрелки, текст, ластик",
+  "Показ экрана в играх стал плавным — 60 кадров",
+  "Новые стикеры: живые, с белой обводкой",
+  "Обновления ставятся сами и приложение перезапускается"
  ],
  "notes_en": [
-  "Calls no longer lag while you play",
-  "Sound starts by itself — no more blue “tap to turn on sound” button",
-  "Photos and videos in chat",
-  "Your status shows the game, the Roblox place and minutes played"
+  "Draw on a shared screen: pen, marker, laser, arrows, text, eraser",
+  "Smooth screen sharing in games — 60 fps",
+  "New stickers: lively, with a white die-cut edge",
+  "Updates install by themselves and the app restarts"
  ],
  "app": {
-  "version": "1.5.1",
+  "version": "1.5.2",
   "electron": "39.8.10",
-  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.1/Fedophone-app.asar",
-  "size": 423824,
-  "sha256": "f03299bb326ec9aa92200f51d1928554c34104f9e3196f14101218c2d40fdc1b"
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.5.2/Fedophone-app.asar",
+  "size": 427617,
+  "sha256": "f214b65e284e07bfe6de284203f8da105bcad28cb63dcdfe1efc6464a7fd2797"
  }
 }
