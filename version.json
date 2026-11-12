@@ -5,28 +5,28 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Кнопка «Обновить» в Настройки → О приложении",
-    "Обновление качается с нашего сайта — без VPN",
-    "Звонки сохраняются в чате",
-    "«Сегодня / Вчера» и время у сообщений",
-    "Играть за друга, Twitch и Rutube, трансляции"
+    "Рация (push-to-talk) — работает и в играх",
+    "Показ экрана: ровные кадры, голос не проседает",
+    "Закреп сверху, поиск по чату, огонёк дружбы",
+    "Свои стикеры из картинок, TikTok",
+    "Новые игры: Спички и Кости"
   ],
   "notes_en": [
-    "Update button in Settings → About",
-    "Updates download from our site — no VPN needed",
-    "Calls are kept in the chat",
-    "Today / Yesterday and time on messages",
-    "Play for your friend, Twitch and Rutube, streams"
+    "Push-to-talk — works in games too",
+    "Screen share: steady frames, voice stays clear",
+    "Pinned bar, chat search, friendship streak",
+    "Your own stickers, TikTok",
+    "New games: Matches and Dice"
   ],
   "app": {
-    "version": "1.6.5",
+    "version": "1.6.6",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.5/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.6/Fedophone-app.asar"
     ],
-    "size": 449080,
-    "sha256": "c7093d17903ea7ebd5a5570e4f2a53ce6927a47bdb53d0598ad07b57e441eff7"
+    "size": 450628,
+    "sha256": "4b611876682c94c1f6af2fc09a99107fa3d2351925f3f8c72c563ceaf7024777"
   }
 }
