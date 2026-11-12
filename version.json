@@ -1,16 +1,28 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "date": "2026-11-12",
-  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.0/Fedophone-Setup-x64.exe",
-  "size": 94723570,
-  "sha256": "08870174b519298f3fd9236b6b1ea1b17307383dec9c316defad65488f8f4075",
-  "notes": "Групповые звонки, совместный YouTube, запись звонка, мини-игры, выбор окна или игры для показа, управление мышью друга (с его разрешения), AI-шумодав и новые звуки.",
-  "notes_en": "Group calls, watch YouTube together, call recording, mini-games, choose a window or game to share, control a friend's mouse (with permission), AI noise suppression and new sounds.",
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.1/Fedophone-Setup-x64.exe",
+  "size": 94726542,
+  "sha256": "a37e9c215bff5f19a68b3193d22fc96131733684b820197525f3711e598ebdbe",
+  "notes": [
+    "Обновления ставятся сами, Fedophone сразу перезапускается",
+    "Новые звуки звонка и приколы",
+    "Показ экрана быстрее и плавнее",
+    "Все игры в статусе с красивыми иконками",
+    "Галочки: синяя, серебряная 100K, бриллиантовая 1M"
+  ],
+  "notes_en": [
+    "Updates install themselves and Fedophone reopens right away",
+    "New call sounds and fun sounds",
+    "Faster, smoother screen sharing",
+    "All games in your status with nice icons",
+    "Ticks: blue, silver 100K, diamond 1M"
+  ],
   "app": {
-    "version": "1.6.0",
+    "version": "1.6.1",
     "electron": "39.8.10",
-    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.0/Fedophone-app.asar",
-    "size": 433051,
-    "sha256": "859471ee6758f6b795116b4436c891469cdb87c205d42bc71bb0cb31677e6fbb"
+    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.1/Fedophone-app.asar",
+    "size": 442417,
+    "sha256": "29a782b7039a160a4f58f70b59a27bb0bb2a6f3e8d012504429be4e8a4a0fd2a"
   }
 }
