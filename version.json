@@ -1,28 +1,28 @@
 {
-  "version": "1.6.2",
+  "version": "1.6.3",
   "date": "2026-11-12",
-  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.2/Fedophone-Setup-x64.exe",
-  "size": 94726846,
-  "sha256": "52ff37653f7e2565a019f5a55ec0807fc6b680adfb7d5c24dfcd73ee102278b0",
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.3/Fedophone-Setup-x64.exe",
+  "size": 94727017,
+  "sha256": "9b846dacf4a53eb63a06aa9743aee4d2b6ae4d156b650fb1f789cdefc58ec1b6",
   "notes": [
-    "Обновления: скачиваются и Fedophone сразу перезапускается",
-    "Клипы — последние 30 секунд одной кнопкой (Alt+C)",
-    "Новая игра «4 в ряд» и счёт с другом",
-    "Значок PLUS у ника",
-    "Фото, видео и голосовые — даже когда друг не в сети"
+    "Полный экран — F11",
+    "Мелодии звонка: новогодняя и Хэллоуин (бета)",
+    "Новый экран входящего звонка",
+    "Выход и смена аккаунта",
+    "Монеты и новогодний набор"
   ],
   "notes_en": [
-    "Updates download and Fedophone reopens right away",
-    "Clips — the last 30 seconds with one button (Alt+C)",
-    "New game: Four in a row, plus a score with your friend",
-    "PLUS mark next to your nick",
-    "Photos, videos and voice notes even when your friend is offline"
+    "Full screen — F11",
+    "Ringtones: New Year and Halloween (beta)",
+    "New incoming call screen",
+    "Sign out and switch account",
+    "Coins and the New Year set"
   ],
   "app": {
-    "version": "1.6.2",
+    "version": "1.6.3",
     "electron": "39.8.10",
-    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.2/Fedophone-app.asar",
-    "size": 443492,
-    "sha256": "eb3462c14ff54beb933f975de34d7a4c138a4f0972ca4edcb08bb887be0ca435"
+    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.3/Fedophone-app.asar",
+    "size": 444067,
+    "sha256": "5abe3022d44c9f49de604ad5cb5bc96a048eef6473dffe54d6f6dec97d15ee54"
   }
 }
