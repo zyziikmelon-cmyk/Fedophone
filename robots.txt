@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /impressum.html
+Disallow: /privacy.html
+Disallow: /terms.html
+Sitemap: https://fedophone.pages.dev/sitemap.xml
