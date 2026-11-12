@@ -1,28 +1,28 @@
 {
-  "version": "1.6.1",
+  "version": "1.6.2",
   "date": "2026-11-12",
-  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.1/Fedophone-Setup-x64.exe",
-  "size": 94726542,
-  "sha256": "a37e9c215bff5f19a68b3193d22fc96131733684b820197525f3711e598ebdbe",
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.2/Fedophone-Setup-x64.exe",
+  "size": 94726846,
+  "sha256": "52ff37653f7e2565a019f5a55ec0807fc6b680adfb7d5c24dfcd73ee102278b0",
   "notes": [
-    "Обновления ставятся сами, Fedophone сразу перезапускается",
-    "Новые звуки звонка и приколы",
-    "Показ экрана быстрее и плавнее",
-    "Все игры в статусе с красивыми иконками",
-    "Галочки: синяя, серебряная 100K, бриллиантовая 1M"
+    "Обновления: скачиваются и Fedophone сразу перезапускается",
+    "Клипы — последние 30 секунд одной кнопкой (Alt+C)",
+    "Новая игра «4 в ряд» и счёт с другом",
+    "Значок PLUS у ника",
+    "Фото, видео и голосовые — даже когда друг не в сети"
   ],
   "notes_en": [
-    "Updates install themselves and Fedophone reopens right away",
-    "New call sounds and fun sounds",
-    "Faster, smoother screen sharing",
-    "All games in your status with nice icons",
-    "Ticks: blue, silver 100K, diamond 1M"
+    "Updates download and Fedophone reopens right away",
+    "Clips — the last 30 seconds with one button (Alt+C)",
+    "New game: Four in a row, plus a score with your friend",
+    "PLUS mark next to your nick",
+    "Photos, videos and voice notes even when your friend is offline"
   ],
   "app": {
-    "version": "1.6.1",
+    "version": "1.6.2",
     "electron": "39.8.10",
-    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.1/Fedophone-app.asar",
-    "size": 442417,
-    "sha256": "29a782b7039a160a4f58f70b59a27bb0bb2a6f3e8d012504429be4e8a4a0fd2a"
+    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.2/Fedophone-app.asar",
+    "size": 443492,
+    "sha256": "eb3462c14ff54beb933f975de34d7a4c138a4f0972ca4edcb08bb887be0ca435"
   }
 }
