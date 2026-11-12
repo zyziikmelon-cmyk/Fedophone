@@ -1,28 +1,32 @@
 {
-  "version": "1.6.3",
+  "version": "1.6.4",
   "date": "2026-11-12",
-  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.3/Fedophone-Setup-x64.exe",
-  "size": 94727017,
-  "sha256": "9b846dacf4a53eb63a06aa9743aee4d2b6ae4d156b650fb1f789cdefc58ec1b6",
+  "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.4/Fedophone-Setup-x64.exe",
+  "size": 94728216,
+  "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Полный экран — F11",
-    "Мелодии звонка: новогодняя и Хэллоуин (бета)",
-    "Новый экран входящего звонка",
-    "Выход и смена аккаунта",
-    "Монеты и новогодний набор"
+    "Кнопка «Обновить» в Настройки → О приложении",
+    "Обновление качается с нашего сайта — без VPN",
+    "Звонки сохраняются в чате",
+    "«Сегодня / Вчера» и время у сообщений",
+    "Играть за друга, Twitch и Rutube, трансляции"
   ],
   "notes_en": [
-    "Full screen — F11",
-    "Ringtones: New Year and Halloween (beta)",
-    "New incoming call screen",
-    "Sign out and switch account",
-    "Coins and the New Year set"
+    "Update button in Settings → About",
+    "Updates download from our site — no VPN needed",
+    "Calls are kept in the chat",
+    "Today / Yesterday and time on messages",
+    "Play for your friend, Twitch and Rutube, streams"
   ],
   "app": {
-    "version": "1.6.3",
+    "version": "1.6.5",
     "electron": "39.8.10",
-    "url": "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.3/Fedophone-app.asar",
-    "size": 444067,
-    "sha256": "5abe3022d44c9f49de604ad5cb5bc96a048eef6473dffe54d6f6dec97d15ee54"
+    "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
+    "urls": [
+      "https://fedophone.pages.dev/Fedophone-app.asar",
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.5/Fedophone-app.asar"
+    ],
+    "size": 449080,
+    "sha256": "c7093d17903ea7ebd5a5570e4f2a53ce6927a47bdb53d0598ad07b57e441eff7"
   }
 }
