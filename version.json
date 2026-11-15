@@ -5,26 +5,20 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Рисование на показе экрана: фигуры, неон, толщина, любой цвет — и друг теперь всегда видит рисунок",
-    "Чат больше не перерисовывается во время звонка",
-    "Голосовые компактнее, полоска не заканчивается раньше звука",
-    "Телефон: удобные настройки на весь экран"
+    "Звонки: добавлен второй сервер связи не на Cloudflare — голос должен доходить и без VPN"
   ],
   "notes_en": [
-    "Drawing on screen share: shapes, neon, sizes, any colour — and your friend always sees it now",
-    "The chat no longer redraws itself during calls",
-    "Voice messages are compact, the bar no longer ends before the sound",
-    "Phone: easy full-screen settings"
+    "Calls: a second relay server outside Cloudflare — voice should get through without a VPN"
   ],
   "app": {
-    "version": "1.6.8",
+    "version": "1.6.9",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.8/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.9/Fedophone-app.asar"
     ],
-    "size": 2184495,
-    "sha256": "34372597662718c41519f4e69f368005b1ff548ef5551e7e97f1792b7abb295f"
+    "size": 2183204,
+    "sha256": "c55989027688e98e3683e950fbabfeae4e9bfb9d8987f7b9e5c1a9d41bf88445"
   }
 }
