@@ -1,32 +1,28 @@
 {
   "version": "1.6.4",
-  "date": "2026-11-12",
+  "date": "2026-11-15",
   "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-Setup-x64.exe",
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Рация (push-to-talk) — работает и в играх",
-    "Показ экрана: ровные кадры, голос не проседает",
-    "Закреп сверху, поиск по чату, огонёк дружбы",
-    "Свои стикеры из картинок, TikTok",
-    "Новые игры: Спички и Кости"
+    "Микрофон снова работает: рация больше не включается сама",
+    "Приложение открывается даже без доступа к сайту — у него своя копия",
+    "Телефон: кнопки звонка в один ряд, ничего не прячется под часами"
   ],
   "notes_en": [
-    "Push-to-talk — works in games too",
-    "Screen share: steady frames, voice stays clear",
-    "Pinned bar, chat search, friendship streak",
-    "Your own stickers, TikTok",
-    "New games: Matches and Dice"
+    "Mic works again: push-to-talk no longer stays on by itself",
+    "The app opens even when the site is unreachable — it keeps its own copy",
+    "Phone: call buttons in one row, nothing hidden under the clock"
   ],
   "app": {
-    "version": "1.6.6",
+    "version": "1.6.7",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.6/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.7/Fedophone-app.asar"
     ],
-    "size": 450628,
-    "sha256": "4b611876682c94c1f6af2fc09a99107fa3d2351925f3f8c72c563ceaf7024777"
+    "size": 2175592,
+    "sha256": "8a963f066d44bfb1f1152bb788e6aa3c86c4429641f45b4425832194948e73ab"
   }
 }
