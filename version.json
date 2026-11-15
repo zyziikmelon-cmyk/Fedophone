@@ -5,24 +5,26 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Микрофон снова работает: рация больше не включается сама",
-    "Приложение открывается даже без доступа к сайту — у него своя копия",
-    "Телефон: кнопки звонка в один ряд, ничего не прячется под часами"
+    "Рисование на показе экрана: фигуры, неон, толщина, любой цвет — и друг теперь всегда видит рисунок",
+    "Чат больше не перерисовывается во время звонка",
+    "Голосовые компактнее, полоска не заканчивается раньше звука",
+    "Телефон: удобные настройки на весь экран"
   ],
   "notes_en": [
-    "Mic works again: push-to-talk no longer stays on by itself",
-    "The app opens even when the site is unreachable — it keeps its own copy",
-    "Phone: call buttons in one row, nothing hidden under the clock"
+    "Drawing on screen share: shapes, neon, sizes, any colour — and your friend always sees it now",
+    "The chat no longer redraws itself during calls",
+    "Voice messages are compact, the bar no longer ends before the sound",
+    "Phone: easy full-screen settings"
   ],
   "app": {
-    "version": "1.6.7",
+    "version": "1.6.8",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.7/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.8/Fedophone-app.asar"
     ],
-    "size": 2175592,
-    "sha256": "8a963f066d44bfb1f1152bb788e6aa3c86c4429641f45b4425832194948e73ab"
+    "size": 2184495,
+    "sha256": "34372597662718c41519f4e69f368005b1ff548ef5551e7e97f1792b7abb295f"
   }
 }
