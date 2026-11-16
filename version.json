@@ -1,24 +1,28 @@
 {
   "version": "1.6.4",
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-Setup-x64.exe",
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Звонки: добавлен второй сервер связи не на Cloudflare — голос должен доходить и без VPN"
+    "Управление компьютером друга: теперь работает и клавиатура, кнопки мыши больше не залипают",
+    "Экран друга сам выскакивает в маленьком окне, когда сворачиваешь Fedophone",
+    "Ивенты в управлении: «Эстафета», «Саботаж», «Пополам»"
   ],
   "notes_en": [
-    "Calls: a second relay server outside Cloudflare — voice should get through without a VPN"
+    "Remote control: the keyboard works too, mouse buttons no longer get stuck",
+    "Your friend's screen pops out in a small window when you minimise Fedophone",
+    "Control events: Relay, Sabotage, Split"
   ],
   "app": {
-    "version": "1.6.9",
+    "version": "1.6.10",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.9/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.10/Fedophone-app.asar"
     ],
-    "size": 2183204,
-    "sha256": "c55989027688e98e3683e950fbabfeae4e9bfb9d8987f7b9e5c1a9d41bf88445"
+    "size": 2440370,
+    "sha256": "a41f0670ae90d3e4133366e00eb70b5e55b42fa6480bb52e7996ea14f5a5bbee"
   }
 }
