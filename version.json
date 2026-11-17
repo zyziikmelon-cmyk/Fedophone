@@ -1,28 +1,28 @@
 {
   "version": "1.6.4",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-Setup-x64.exe",
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Управление компьютером друга: теперь работает и клавиатура, кнопки мыши больше не залипают",
-    "Экран друга сам выскакивает в маленьком окне, когда сворачиваешь Fedophone",
-    "Ивенты в управлении: «Эстафета», «Саботаж», «Пополам»"
+    "Новая иконка Fedophone — закат и пальма",
+    "Тема «Неоновые ночи»: пляж, сленг и свой шрифт",
+    "Музыка вместе: обложка, текст песни и поиск хитов"
   ],
   "notes_en": [
-    "Remote control: the keyboard works too, mouse buttons no longer get stuck",
-    "Your friend's screen pops out in a small window when you minimise Fedophone",
-    "Control events: Relay, Sabotage, Split"
+    "New Fedophone icon — sunset and a palm",
+    "Neon Nights theme: beach, slang and its own font",
+    "Music together: cover, lyrics and hit search"
   ],
   "app": {
-    "version": "1.6.10",
+    "version": "1.6.11",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.10/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.11/Fedophone-app.asar"
     ],
-    "size": 2440370,
-    "sha256": "a41f0670ae90d3e4133366e00eb70b5e55b42fa6480bb52e7996ea14f5a5bbee"
+    "size": 2526566,
+    "sha256": "ee42199c0989e73a4c7512f2d88ca45319262f2d0d94e1fb9362f6ee1774dbec"
   }
 }
