@@ -17,28 +17,32 @@ hr{border:0;border-top:1px solid #3a3c42;margin:30px 0}
 <nav><a href="impressum.html">Impressum</a><a href="privacy.html" class="on">Privacy</a><a href="terms.html">Terms</a></nav>
 
 <h1>Privacy policy · Политика конфиденциальности</h1>
-<p><small>Last updated: 2026-11-15</small></p>
+<p><small>Last updated: 2026-11-17</small></p>
 
 <h2>1. Who is responsible</h2>
 <p>The operator named in the <a href="impressum.html">Impressum</a>. Questions about your data: <span data-mail><noscript>(enable JavaScript to see the address)</noscript></span></p>
 
 <h2>2. What Fedophone is, in short</h2>
-<p>Fedophone is a chat and call app for two people in a private room. Messages, voice messages, stickers and calls go <b>directly between you and your friend</b>. There is no server that stores or reads your conversations.</p>
+<p>Fedophone is a chat and call app for two people in a private room. Messages, voice messages, stickers and calls go <b>directly between you and your friend</b>. There is no server that stores or reads your conversations. The only exceptions are listed below: your optional account, and photos/videos/voice notes for a friend who is offline, which wait on the server <b>encrypted</b> for up to 7 days.</p>
 
 <h2>3. What is stored where</h2>
 <ul>
 <li><b>On your device only:</b> your name, avatar, banner, status, settings, chat history, pins and voice messages. They live in your browser's local storage or in the Windows app's files and never leave your device except to your friend in the room. You can delete a chat in <i>Settings → Chats</i> or clear everything by clearing site data.</li>
-<li><b>Account (optional):</b> if you create one, the server keeps your account name, a salted password hash (the password itself is never stored), and your profile so you can sign in on another device. No e-mail address is required.</li>
+<li><b>Account (optional):</b> if you create one, the server keeps your account name, a salted password hash (the password itself is never stored), your profile so you can sign in on another device, your PLUS status, and — if you created one — a salted hash of your <b>recovery code</b> (the code itself is never stored; it is used up when you reset a password). No e-mail address is required.</li>
+<li><b>Offline mailbox:</b> when your friend is offline, a photo, video or voice note is encrypted on your device with the room key and kept on Cloudflare for at most <b>7 days</b> under a random id. We cannot open it; it is deleted automatically.</li>
 </ul>
 
 <h2>4. Services that technically see your connection</h2>
 <p>To let two devices find each other, third-party services receive your <b>IP address</b> and technical connection data, like any server. The content of the introduction messages is encrypted with a key derived from the secret room word.</p>
 <ul>
-<li><b>Cloudflare, Inc.</b> — hosting (Pages), account and relay passwords (Workers), call relay (TURN) when no direct path exists.</li>
+<li><b>Cloudflare, Inc.</b> — hosting (Pages), account and relay passwords (Workers), call relay (TURN) when no direct path exists, the offline mailbox (Workers KV).</li>
+<li><b>ExpressTURN</b> — a second call relay outside Cloudflare, used only when a direct connection and the first relay fail.</li>
 <li><b>GitHub, Inc.</b> — a second copy of the website (GitHub Pages) and the download of app updates.</li>
 <li><b>Public message brokers</b> (EMQX, HiveMQ, Mosquitto) and <b>ntfy.sh</b> — carry encrypted introduction and offline-delivery messages for a short time (about 12 hours).</li>
-<li><b>STUN servers</b> — only tell your device its public address.</li>
+<li><b>STUN servers</b> (Google, Cloudflare, Mozilla, Sipnet) — only tell your device its public address.</li>
+<li><b>Video players</b> (YouTube, Twitch, Kick, Vimeo, RuTube, VK Video) — only when you open such a link in “Watch together”; the player then loads from that site under its own policy.</li>
 </ul>
+<p>A relay passes call data along but <b>cannot read it</b>: calls are always encrypted end-to-end (DTLS-SRTP), the relay only sees IP addresses and the amount of traffic. The relay is built in and switches on by itself — you don't need to set anything up.</p>
 
 <h2>5. The Windows app</h2>
 <p>If you allow it, the Windows app looks at the list of running programs <b>only to recognise a known game</b> and shares the game name, icon and play time (and, for Dota 2, CS2 and Roblox, the match state or place) <b>with your friend in the room</b>. This is not sent to us. It checks for updates by downloading a small public file from GitHub or Cloudflare.</p>
@@ -54,7 +58,7 @@ hr{border:0;border-top:1px solid #3a3c42;margin:30px 0}
 
 <hr>
 <h2>Коротко по-русски</h2>
-<p>Сообщения, голосовые и звонки идут напрямую между вами, мы их не храним и не читаем. Настройки и чаты лежат только на твоём устройстве. Для соединения используются сторонние сервисы (Cloudflare, GitHub, публичные брокеры, ntfy.sh, STUN) — они видят твой IP-адрес, но содержимое зашифровано. Приложение для Windows определяет игру только чтобы показать её другу. Удалить данные можно в настройках («Чаты») или очистив данные сайта. Вопросы: <span data-mail><noscript>(enable JavaScript to see the address)</noscript></span></p>
+<p>Сообщения, голосовые и звонки идут напрямую между вами, мы их не храним и не читаем. Настройки и чаты лежат только на твоём устройстве. На сервере хранится только аккаунт (ник, хеш пароля, профиль, хеш кода восстановления) и, пока друг не в сети, зашифрованные фото/видео/голосовые — до 7 дней, прочитать их мы не можем. Для соединения используются сторонние сервисы (Cloudflare, ExpressTURN, GitHub, публичные брокеры, ntfy.sh, STUN, а при совместном просмотре — сайт видео) — они видят твой IP-адрес, но содержимое зашифровано. Ретранслятор звонков встроен и включается сам. Приложение для Windows определяет игру только чтобы показать её другу. Удалить данные можно в настройках («Чаты») или очистив данные сайта. Вопросы: <span data-mail><noscript>(enable JavaScript to see the address)</noscript></span></p>
 <script>(function(){try{var d=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob('fSJtb2MubGlhbWdAbm9ocG9kZWYiOiJlIns='),function(x){return x.charCodeAt(0)}).reverse()));
 document.querySelectorAll('[data-mail]').forEach(function(e){e.textContent='';var a=document.createElement('a');a.href='mailto:'+d.e;a.textContent=d.e;e.appendChild(a)});
 }catch(e){}})()</script>
