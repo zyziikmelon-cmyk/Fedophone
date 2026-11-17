@@ -1,28 +1,28 @@
 {
   "version": "1.6.4",
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-Setup-x64.exe",
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Смотрите Fidorium вместе прямо в звонке: серия, пауза и перемотка у обоих",
-    "Быстрые действия в значке у часов: Fidorium, музыка, идея",
-    "Экономный режим для слабых компьютеров, файлы передаются быстрее"
+    "Музыка в программе играет целиком — исправлена ошибка, из-за которой были только отрывки по 30 секунд",
+    "Новогодняя игра вдвоём, адвент-календарь, итоги года",
+    "Новый зимний город, эффекты «Неоновых ночей», меньше памяти"
   ],
   "notes_en": [
-    "Watch Fidorium together in a call: episode, pause and seeking stay in sync",
-    "Quick actions in the tray icon: Fidorium, music, idea",
-    "Economy mode for weak computers, faster file transfer"
+    "Music in the desktop app plays full songs again — no more 30-second previews only",
+    "New Year game for two, advent calendar, year in review",
+    "New winter city, Neon Nights effects, less memory"
   ],
   "app": {
-    "version": "1.6.15",
+    "version": "1.6.16",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.15/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.16/Fedophone-app.asar"
     ],
-    "size": 2532943,
-    "sha256": "60c3ac5238289e09c1a766db2f8f8b2fe05509701e527d51d43859db5f4625a2"
+    "size": 2610634,
+    "sha256": "ec12c005cacc96d8b56d36e643df64e34bcd94f3629994804d8abe036c3090fd"
   }
 }
