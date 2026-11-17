@@ -5,24 +5,24 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Песни, закрытые лейблами, играют целиком в маленьком окне YouTube",
-    "Обновления сайта приходят даже при медленном интернете",
-    "Красивее текст песен и снег в плеере"
+    "Смотрите Fidorium вместе прямо в звонке: серия, пауза и перемотка у обоих",
+    "Быстрые действия в значке у часов: Fidorium, музыка, идея",
+    "Экономный режим для слабых компьютеров, файлы передаются быстрее"
   ],
   "notes_en": [
-    "Label-locked songs play in full in a small YouTube window",
-    "Site updates arrive even on a slow connection",
-    "Prettier lyrics and snow in the player"
+    "Watch Fidorium together in a call: episode, pause and seeking stay in sync",
+    "Quick actions in the tray icon: Fidorium, music, idea",
+    "Economy mode for weak computers, faster file transfer"
   ],
   "app": {
-    "version": "1.6.14",
+    "version": "1.6.15",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.14/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.15/Fedophone-app.asar"
     ],
-    "size": 2515033,
-    "sha256": "5af1201ff3b033ae460760628d35aa8b04877e839ceec6498edda2a3fb42e10c"
+    "size": 2532943,
+    "sha256": "60c3ac5238289e09c1a766db2f8f8b2fe05509701e527d51d43859db5f4625a2"
   }
 }
