@@ -5,24 +5,24 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Новая иконка и на ярлыке рабочего стола",
-    "Музыка: полные песни, караоке-текст, «Популярное в Fedophone», настройки",
-    "Тема «Неоновые ночи»: больше сленга"
+    "Песни, закрытые лейблами, играют целиком в маленьком окне YouTube",
+    "Обновления сайта приходят даже при медленном интернете",
+    "Красивее текст песен и снег в плеере"
   ],
   "notes_en": [
-    "The new icon on the desktop shortcut too",
-    "Music: full songs, karaoke lyrics, Popular on Fedophone, settings",
-    "Neon Nights theme: more slang"
+    "Label-locked songs play in full in a small YouTube window",
+    "Site updates arrive even on a slow connection",
+    "Prettier lyrics and snow in the player"
   ],
   "app": {
-    "version": "1.6.13",
+    "version": "1.6.14",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.13/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.14/Fedophone-app.asar"
     ],
-    "size": 2510773,
-    "sha256": "fe13cfbbbc46c5066cea6d4f838d147f89441db7bed481ee40d354260255971e"
+    "size": 2515033,
+    "sha256": "5af1201ff3b033ae460760628d35aa8b04877e839ceec6498edda2a3fb42e10c"
   }
 }
