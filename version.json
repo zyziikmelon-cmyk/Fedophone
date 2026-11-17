@@ -5,24 +5,24 @@
   "size": 94728216,
   "sha256": "ad9b590a42701a2aec71c7c30ea852075a776d3e4d59877cc9c6a2c96e35f452",
   "notes": [
-    "Новая иконка Fedophone — закат и пальма",
+    "Новая иконка Fedophone — логотип по центру, закат и пальма",
     "Тема «Неоновые ночи»: пляж, сленг и свой шрифт",
     "Музыка вместе: обложка, текст песни и поиск хитов"
   ],
   "notes_en": [
-    "New Fedophone icon — sunset and a palm",
+    "New Fedophone icon — centred logo, sunset and a palm",
     "Neon Nights theme: beach, slang and its own font",
     "Music together: cover, lyrics and hit search"
   ],
   "app": {
-    "version": "1.6.11",
+    "version": "1.6.12",
     "electron": "39.8.10",
     "url": "https://zyziikmelon-cmyk.github.io/Fedophone/Fedophone-app.asar",
     "urls": [
       "https://fedophone.pages.dev/Fedophone-app.asar",
-      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.11/Fedophone-app.asar"
+      "https://github.com/zyziikmelon-cmyk/Fedophone/releases/download/v1.6.12/Fedophone-app.asar"
     ],
-    "size": 2526566,
-    "sha256": "ee42199c0989e73a4c7512f2d88ca45319262f2d0d94e1fb9362f6ee1774dbec"
+    "size": 2493303,
+    "sha256": "e2e3c258bd2c4586556de1a89800532f12337056f4b81a01b548bb5f53f10a15"
   }
 }
